@@ -1,0 +1,44 @@
+\message{Moritz preable included}% language support
+\usepackage[english]{babel}
+% \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+% simple programming stuff like ifdef
+\usepackage{etoolbox}
+\usepackage{amsmath}
+\usepackage{hepparticles}
+\input{heppennames2}
+\usepackage{subdepth}
+\usepackage{xspace}
+%%%%%%%%%%%%%%%% tdr AN copy here
+\usepackage{ifthen}%           Conditionals
+% switches to handle document styles: one of these must be specified.
+\newboolean{cms@external}
+\setboolean{cms@external}{false}
+\newboolean{cms@italic}
+\setboolean{cms@italic}{false}
+
+\providecommand{\q}{\ensuremath{q}\xspace}
+\providecommand{\as}{\ensuremath{\alpha_{s}}\xspace}
+\providecommand{\mz}{\ensuremath{M_\mathrm{Z}}\xspace}
+%%%%%END%%%%%%%%%%% tdr AN copy here
+% consistent SI units
+\usepackage{siunitx}
+\DeclareSIUnit[] \pbinv{\per \pico \barn}
+\DeclareSIUnit[] \fbinv{\per \femto \barn}
+% math packages and symbols
+\usepackage{amsmath,amssymb,amstext,amsthm,bm}
+\usepackage[ math-style=ISO, bold-style=ISO, partial=upright, nabla=upright]{unicode-math}
+\setmathfont{Libertinus Math}
+\setmathrm{Libertinus Serif}
+\usepackage{fontspec}
+\setmainfont{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+% diagonal lines through math symbols/formulas
+\usepackage{cancel}
+% nice fractions for inline equations
+\usepackage{xfrac}
+\DeclareMathOperator\erf{erf}
+\DeclareMathOperator\sgn{sgn}
+\input{dict}
+\usepackage{ptdr-definitions}
+\input{shortcuts}
