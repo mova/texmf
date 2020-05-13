@@ -12,7 +12,7 @@
 \newcommand{\myMET}{\ensuremath{\not\!\!{E_{T}}}\xspace}
 
 
-\newcommand{\eslash}{\ensuremath{{\hbox{$E$\kern-0.6em\lower-.05ex\hbox{/}\kern0.10em}}}}
+\newcommand{\eslash}{\ensuremath{{\hbox{$E$\kern-0.3em\lower-.05ex\hbox{/}\kern0.10em}}}}
 \newcommand{\tauslash}{\ensuremath{{\hbox{\Pgt\kern-0.6em\lower-.05ex\hbox{/}\kern0.10em}}}}
 % \newcommand{\tauhslash}{\ensuremath{{\hbox{\Pgth\kern-0.6em\lower-.05ex\hbox{/}\kern0.10em}}}}
 %MET symbols
@@ -50,12 +50,12 @@
 % % HTT channels
 % \newcommand{\Pgth}{\Pgt_{\text{h}}\xspace}
 \newcommand{\Pgth}{\ensuremath{\Pgt_{\text{h}}}\xspace}
-\newcommand{\emu}{\ensuremath{\Pe\Pgm}\xspace}
-\newcommand{\ee}{\ensuremath{\Pe\Pe}\xspace}
-\newcommand{\mumu}{\ensuremath{\Pgm\Pgm}\xspace}
-\newcommand{\mutau}{\ensuremath{\Pgm\Pgth}\xspace}
-\newcommand{\etau}{\ensuremath{\Pe\Pgth}\xspace}
-\newcommand{\tautau}{\ensuremath{\Pgth\Pgth}\xspace}
+\newcommand{\emu}{\texorpdfstring{\ensuremath{\Pe\Pgm}}{eμ}\xspace}
+\newcommand{\ee}{\texorpdfstring{\ensuremath{\Pe\Pe}}{ee}\xspace}
+\newcommand{\mumu}{\texorpdfstring{\ensuremath{\Pgm\Pgm}}{μμ}\xspace}
+\newcommand{\mutau}{\texorpdfstring{\ensuremath{\Pgm\Pgth}}{μτ}\xspace}
+\newcommand{\etau}{\texorpdfstring{\ensuremath{\Pe\Pgth}}{eτ}\xspace}
+\newcommand{\tautau}{\texorpdfstring{\ensuremath{\Pgth\Pgth}}{ττ}\xspace}
 
 \newcommand{\ZJets}{\ensuremath{\PZ}{+}\text{jets}\xspace}
 \newcommand{\WJets}{\ensuremath{\PW}{+}\text{jets}\xspace}
@@ -116,16 +116,23 @@
 \newcommand{\EMB}{\Pgt-embedding\xspace}
 \newcommand{\QCD}{QCD multi-jet\xspace}
 
-
-% \newcommand{\jetfakes}{\ensuremath{\text{jet-to-}\Pgth}\xspace}
-% \newcommand{\lfakes}{\ensuremath{\ell\text{-to-}\Pgt}\xspace}
-\newcommand{\tt}{\ensuremath{\Pgt\Pgt}\xspace}
+\renewcommand{\tt}{\ensuremath{\Pgt\Pgt}\xspace}
 \newcommand{\lfakes}{\ensuremath{\ell\to\tauslash}}
 \newcommand{\jetfakes}{\ensuremath{\text{jet}\to\tauslash}}
 
 \newcommand{\ZL}{\ZLL}
 \newcommand{\W}{\WJ}
 
+\newcommand{\DRsl}{\ensuremath{\text{DR}_{\mathrm{sl}}}\xspace}
+\newcommand{\DRbl}{\ensuremath{\text{DR}_{\mathrm{bl}}}\xspace}
+\newcommand{\AR}{\ensuremath{\text{AR}}\xspace}
+\newcommand{\SR}{\ensuremath{\text{SR}}\xspace}
+
+\newcommand{\FFb}{\ensuremath{F_{\text{F},b}}\xspace}
+\newcommand{\DRslb}{\ensuremath{\text{DR}_{\mathrm{sl}}^b}\xspace}
+\newcommand{\DRblb}{\ensuremath{\text{DR}_{\mathrm{bl}}^b}\xspace}
+\newcommand{\DRslcont}{\ensuremath{\text{DR}_{\mathrm{sl}}^{\text{cont}}}\xspace}
+\newcommand{\DRblcont}{\ensuremath{\text{DR}_{\mathrm{bl}}^{\text{cont}}}\xspace}
 
 \DefineDictionary{stxs}{%
 ggh1:{$\ggH$ $0\,\text{Jet}$ $p_{T}^{H}<200$\xspace},
@@ -136,26 +143,28 @@ ggh5:{$\ggH$ $p_{T}^{H}>200$\xspace},
 qqh1:{$\qqH$ $≥2\,\text{Jet}$ $m_{jj}<350$\xspace},
 qqh2:{$\qqH$ $≥2\,\text{Jet}$ $m_{jj}>350$ $p_{T}^{H}>200$\xspace},
 qqh3:{$\qqH$ $≤1\,\text{Jet}$\xspace},
-qqh4:{$\xxH$ $≥2\,\text{Jet}$ $m_{jj}∊[350,700]$ $p_{T}^{H}<200$\xspace},
-xxh2:{$\xxH$ $≥2\,\text{Jet}$ $m_{jj}>700$ $p_{T}^{H}<200$\xspace}}
-% 
+xxh1:{$\xxH$ $≥2\,\text{Jet}$ $m_{jj}∊[350,700]$ $p_{T}^{H}<200$\xspace},
+xxh2:{$\xxH$ $≥2\,\text{Jet}$ $m_{jj}>700$ $p_{T}^{H}<200$\xspace}
+}
+
 \DefineDictionary{var}{%
-pt_1:\ensuremath{p_{\mathrm{T},1}},%
-pt_2:\ensuremath{p_{\mathrm{T},2}},%
+pt_1:\ensuremath{p_{\text{T},1}},%
+pt_2:\ensuremath{p_{\text{T},2}},%
 eta:\ensuremath{η},%
 eta_1:\ensuremath{η_1},%
-m_vis:\ensuremath{m_{\mathrm{vis}}},%
-ptvis:\ensuremath{p_{\mathrm{T},\mathrm{vis}}},%
-m_sv_puppi:\ensuremath{m_{\mathrm{sv},\mathrm{puppi}}},%
-m_sv:\ensuremath{m_{\mathrm{sv},\mathrm{puppi}}},%
-bpt_1:\ensuremath{p_{\mathrm{T},\mathrm{b-jet},1}},%
-jpt_1:\ensuremath{p_{\mathrm{T},\mathrm{jet},1}},%
-jpt_2:\ensuremath{p_{\mathrm{T},\mathrm{jet},2}},%
+m_vis:\ensuremath{m_{\text{vis}}},%
+ptvis:\ensuremath{p_{\text{T},\text{vis}}},%
+m_sv_puppi:\ensuremath{m_{\text{sv}}},%
+m_sv:\ensuremath{m_{\text{sv}}},%
+bpt_1:\ensuremath{p_{\text{T},\text{b-jet},1}},%
+jpt_1:\ensuremath{p_{\text{T},\text{jet},1}},%
+jpt_2:\ensuremath{p_{\text{T},\text{jet},2}},%
 jdeta:\ensuremath{δη_{jj}},%
 mjj:\ensuremath{m_{jj}},%
-dijetpt:\ensuremath{p_{\mathrm{T},jj}},%
-mTdileptonMET_puppy:\ensuremath{m_{\mathrm{T},ll}^{\mathrm{MET}}},%
-njets:\ensuremath{n_{\mathrm{jets}}},%
-nbtag:\ensuremath{n_{\mathrm{b-tags}}},%
-ME_q2v1:\ensuremath{\mathrm{ME}_{\mathrm{q2v1}}},%
-ME_q2v2:\ensuremath{\mathrm{ME}_{\mathrm{q2v2}}}}
+dijetpt:\ensuremath{p_{\text{T},jj}},%
+mTdileptonMET_puppy:\ensuremath{m_{\text{T},ll}^{\text{MET}}},%
+njets:\ensuremath{n_{\text{jets}}},%
+nbtag:\ensuremath{n_{\text{b-tags}}},%
+ME_q2v1:\ensuremath{\text{ME}_{\text{q2v1}}},%
+ME_q2v2:\ensuremath{\text{ME}_{\text{q2v2}}},%
+}
