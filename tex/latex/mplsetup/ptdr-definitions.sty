@@ -16,6 +16,17 @@
 \RequirePackage{xspace}
 \RequirePackage{amsmath}
 
+
+%%%%%%%%%%%%%%%% tdr AN copy here
+%set options for the ptdr-definitions
+\usepackage{ifthen}
+\newboolean{cms@external}
+\setboolean{cms@external}{false}
+%to allow for italic formatting
+\newboolean{cms@italic}
+\setboolean{cms@italic}{false}
+% includes macros for commonly used symbols
+
 % Some shorthand
 % turn off italics
 \newcommand {\etal}{\mbox{et al.}\xspace} %et al. - no preceding comma

@@ -1,0 +1,54 @@
+\ProvidesPackage{stdsetup}
+%%%% New set costum fonts
+\usepackage{amsmath,amssymb,amstext,amsthm,bm}
+\usepackage{hepparticles}
+\usepackage{heppennames2}
+% consistent SI units
+\usepackage{siunitx}
+\DeclareSIUnit[] \pbinv{\per \pico \barn}
+\DeclareSIUnit[] \fbinv{\per \femto \barn}
+
+%set the fonts
+%the order must be amsmath>hepparticles>unicode-math>fontspec
+\usepackage[
+    math-style=ISO,
+    bold-style=ISO,
+    nabla=upright
+]{unicode-math}
+\setmathfont{Libertinus Math}
+\setmathrm{Libertinus Serif}
+\usepackage{fontspec}
+\setmainfont[RawFeature=+kern;+liga;+calt]{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+
+
+\usepackage{polyglossia}
+\setdefaultlanguage{english}
+
+
+%%%%% Own Stuff
+%%%%% Addtional packages and own definitions
+%%% var dict
+% This file allows defining python style dicts:
+% \DefineDictionary{var}{%
+% pt_1:\ensuremath{p_{\text{T},1}},%
+% pt_2:\ensuremath{p_{\text{T},2}}}
+% \var{pt_1}-> $p_{\text{T},1}$
+\usepackage{dict}
+
+\usepackage{tablebracket}
+
+%%% use this to store your own commands
+\usepackage{commands}
+
+%include own shortcuts
+\usepackage{ptdr-definitions} % cms definitions for \eg ...
+\usepackage{hepshortcuts}     % own hep shortcuts
+
+
+%%%% Hep symbols
+\usepackage{kit-citing}
+
+
+
+

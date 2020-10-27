@@ -1,16 +1,17 @@
-\message{Moritz preable included}% language support
-\usepackage[english]{babel}
-% \usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
+\ProvidesPackage{mplsetup}[Setup Matplotlib with the correct TeX packages]
+\message{mplsetup included}% language support
+\RequirePackage[english]{babel}
+% \RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
 % simple programming stuff like ifdef
-\usepackage{etoolbox}
-\usepackage{amsmath}
-\usepackage{hepparticles}
+\RequirePackage{etoolbox}
+\RequirePackage{amsmath}
+\RequirePackage{hepparticles}
 \input{heppennames2}
-\usepackage{subdepth}
-\usepackage{xspace}
+\RequirePackage{subdepth}
+\RequirePackage{xspace}
 %%%%%%%%%%%%%%%% tdr AN copy here
-\usepackage{ifthen}%           Conditionals
+\RequirePackage{ifthen}%           Conditionals
 % switches to handle document styles: one of these must be specified.
 \newboolean{cms@external}
 \setboolean{cms@external}{false}
@@ -22,23 +23,23 @@
 \providecommand{\mz}{\ensuremath{M_\mathrm{Z}}\xspace}
 %%%%%END%%%%%%%%%%% tdr AN copy here
 % consistent SI units
-\usepackage{siunitx}
+\RequirePackage{siunitx}
 \DeclareSIUnit[] \pbinv{\per \pico \barn}
 \DeclareSIUnit[] \fbinv{\per \femto \barn}
 % math packages and symbols
-\usepackage{amsmath,amssymb,amstext,amsthm,bm}
-\usepackage[ math-style=ISO, bold-style=ISO, partial=upright, nabla=upright]{unicode-math}
+\RequirePackage{amsmath,amssymb,amstext,amsthm,bm}
+\RequirePackage[ math-style=ISO, bold-style=ISO, partial=upright, nabla=upright]{unicode-math}
 \setmathfont{Libertinus Math}
 \setmathrm{Libertinus Serif}
-\usepackage{fontspec}
+\RequirePackage{fontspec}
 \setmainfont{Libertinus Serif}
 \setsansfont{Libertinus Sans}
 % diagonal lines through math symbols/formulas
-\usepackage{cancel}
+\RequirePackage{cancel}
 % nice fractions for inline equations
-\usepackage{xfrac}
+\RequirePackage{xfrac}
 \DeclareMathOperator\erf{erf}
 \DeclareMathOperator\sgn{sgn}
-\input{dict}
-\usepackage{ptdr-definitions}
-\input{shortcuts}
+\RequirePackage{dict}
+\RequirePackage{ptdr-definitions}
+\RequirePackage{shortcuts}

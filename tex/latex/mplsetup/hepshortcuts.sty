@@ -1,5 +1,7 @@
-
+\ProvidesPackage{hepshortcuts}[Common HEP shortcuts]
 %%%%%%%%%%%%% local definitions %%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{ifthen}
+
 \newlength\cmsFigWidth
 \ifthenelse{\boolean{cms@external}}{\setlength\cmsFigWidth{0.49\textwidth}}{\setlength\cmsFigWidth{0.65\textwidth}} % example: one column in journal, 2/3 in CMS
 \ifthenelse{\boolean{cms@external}}{\providecommand{\cmsLeft}{upper\xspace}}{\providecommand{\cmsLeft}{left\xspace}}
@@ -69,6 +71,7 @@
 \newcommand{\ZToTauTau}{\ensuremath{\PZ\to\Pgt\Pgt}\xspace}
 \newcommand{\HToTauTau}{\ensuremath{\PH\to\Pgt\Pgt}\xspace}
 \newcommand{\Htt}{\ensuremath{\PH\to\Pgt\Pgt}\xspace}
+\newcommand{\Hbb}{\ensuremath{\PH\to\PQb\PQb}\xspace}
 \newcommand{\Hmm}{\ensuremath{\PH\to\Pgm\Pgm}\xspace}
 \newcommand{\ZToMuMu}{\ensuremath{\PZ\to\Pgm\Pgm}\xspace}
 \newcommand{\pzeta}{\ensuremath{p_{\zeta}}\xspace}
@@ -119,29 +122,37 @@
 \newcommand{\QCD}{QCD multi-jet\xspace}
 
 
-\newcommand{\lfakes}{\ensuremath{\ell\to\tauslash}}
-\newcommand{\jetfakes}{\ensuremath{\text{jet}\to\tauslash}}
+% \newcommand{\lfakes}{\ensuremath{\ell\to\tauslash}}
+\newcommand{\jetfakes}{\texorpdfstring{\ensuremath{\text{jet}\to\tauslash}}{jet→¬τ\xspace}}
+\newcommand{\lfakes}{\texorpdfstring{\ensuremath{\ell\to\tauslash}}{lepton→¬τ\xspace}}
 
 \newcommand{\ZL}{\ZLL}
 \newcommand{\W}{\WJ}
+
+
 
 \newcommand{\DRsl}{\ensuremath{\mathrm{DR}_{\mathrm{sl}}}\xspace}
 \newcommand{\DRbl}{\ensuremath{\mathrm{DR}_{\mathrm{bl}}}\xspace}
 \newcommand{\AR}{\ensuremath{\mathrm{AR}}\xspace}
 \newcommand{\SR}{\ensuremath{\mathrm{SR}}\xspace}
 
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\softmax}{softmax}
+\DeclareMathOperator\erf{erf}
+\DeclareMathOperator\sgn{sgn}
 
-%%% stxs bins
+%%% STXS bins
 \DefineDictionary{stxs}{%
 ggh1:{$\ggH$ $0\,\text{Jet}$ $p_{T}^{H}<200$\xspace},
 ggh2:{$\ggH$ $1\,\text{Jet}$ $p_{T}^{H}<120$\xspace},
-ggh3:{$\ggH$ $1\,\text{Jet}$ $p_{T}^{H}∊[120,200]$\xspace},
+ggh3:{$\ggH$ $1\,\text{Jet}$ $p_{T}^{H}\in[120,200]$\xspace},
 ggh4:{$\ggH$ $≥2\,\text{Jet}$ $p_{T}^{H}<200$ $m_{jj}<350$\xspace},
 ggh5:{$\ggH$ $p_{T}^{H}>200$\xspace},
 qqh1:{$\qqH$ $≥2\,\text{Jet}$ $m_{jj}<350$\xspace},
 qqh2:{$\qqH$ $≥2\,\text{Jet}$ $m_{jj}>350$ $p_{T}^{H}>200$\xspace},
 qqh3:{$\qqH$ $≤1\,\text{Jet}$\xspace},
-xxh1:{$\xxH$ $≥2\,\text{Jet}$ $m_{jj}∊[350,700]$ $p_{T}^{H}<200$\xspace},
+xxh1:{$\xxH$ $≥2\,\text{Jet}$ $m_{jj}\in[350,700]$ $p_{T}^{H}<200$\xspace},
 xxh2:{$\xxH$ $≥2\,\text{Jet}$ $m_{jj}>700$ $p_{T}^{H}<200$\xspace}
 }
 
@@ -172,6 +183,7 @@ ME_q2v2:\ensuremath{\text{ME}_{\text{q2v2}}},%
 \DeclareRobustCommand{\PGnell}{{\HepParticle{\PGn}{\ell}{}}\Xspace} % neutrino (for lepton l)
 \newcommand{\ptth}{\ensuremath{{p}_\mathrm{T}^{\Pgth}}\xspace}
 
+\renewcommand{\FF}{\texorpdfstring{\ensuremath{F_\mathrm{F}}}{F\_F}\xspace}
 \newcommand{\FFb}{\ensuremath{F_{\mathrm{F}}^{b}}\xspace}
 \newcommand{\FFqcd}{\ensuremath{F_{\mathrm{F}}^{\text{QCD}}}\xspace}
 \newcommand{\FFw}{\ensuremath{F_{\mathrm{F}}^{\PW}}\xspace}
@@ -183,3 +195,12 @@ ME_q2v2:\ensuremath{\text{ME}_{\text{q2v2}}},%
 \newcommand{\DRblcont}{\ensuremath{\mathrm{DR}_{\mathrm{bl}}^{\mathrm{cont}}}\xspace}
 
 \newcommand{\ptmissvec}{\ensuremath{\vec{p}_\mathrm{T}^\text{miss}}\xspace}
+
+%% shortcuts emb
+\newcommand{\mmm}{\ensuremath{m_\mathrm{μμ}}\xspace}
+
+
+%% charged hadron
+\DeclareRobustCommand{\PHm}{{\HepParticle{h}{}{-}}\Xspace}
+\DeclareRobustCommand{\PHp}{{\HepParticle{h}{}{+}}\Xspace}
+\DeclareRobustCommand{\PHpm}{{\HepParticle{h}{}{\pm}}\Xspace}
