@@ -1,0 +1,208 @@
+\ProvidesPackage{desybeamer}[Desy Beamer Theme]
+
+
+% Setup for Beamer
+\RequirePackage{hyperxmp}
+% \RequirePackage[pdfa]{hyperref}
+\RequirePackage{luatextra}
+\RequirePackage{wasysym}
+\RequirePackage{eurosym}
+\RequirePackage{bookmark}
+\RequirePackage{graphicx}
+\RequirePackage{fontspec}
+
+% Force beamer to use Liberation Sans. Without this it will fall back to
+% Libertine in all ``normal'' text areas. It seems they are not easily
+% accessible from the templates.
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\setmainfont[Mapping=tex-text]{Liberation Sans}
+\setsansfont[Mapping=tex-text]{Liberation Sans}
+
+%% Force Liberation Sans for math as well like strict CD.
+%% However, usually TeX defaults just look way better
+% \RequirePackage{unicode-math}
+% \setmathfont{Liberation Sans} % for math symbols, can be any other OpenType math font
+% \setmathfont[range=\mathup]  {Liberation Sans}
+% \setmathfont[range=\mathbfup]{Liberation Sans Bold}
+% \setmathfont[range=\mathbfit]{Liberation Sans Bold Italic}
+% \setmathfont[range=\mathit]  {Liberation Sans Italic}
+
+\RequirePackage[ngerman,english]{babel}
+\RequirePackage{xspace}
+\RequirePackage{tikz}
+\RequirePackage{fancyvrb}
+\tikzset{%
+  every overlay node/.style={%
+    %draw=black,fill=white,rounded corners,anchor=north west,
+    draw=fzjlightblue,fill=fzjgray30,rounded corners,anchor=north west,
+  },
+}
+% Usage:
+% \tikzoverlay at (-1cm,-5cm) {content};
+% or
+% \tikzoverlay[text width=5cm] at (-1cm,-5cm) {content};
+\def\tikzoverlay{%
+   \tikz[baseline,overlay]\node[every overlay node]
+}%
+
+% General new commands an macros
+\renewcommand{\emph}[1]{\structure{#1}}
+
+\newcommand{\link}[2]{\href{#1}{~#2}}
+
+\newcommand{\jointwo}{\href{http://join2.de}{\textbf{JOIN$^2$}\xspace}}
+
+\newcommand{\BibTeX}{Bib\TeX}
+
+\newcommand{\Inspec}{{\texttt{Inspec}}\xspace}
+\newcommand{\WoS}{{\texttt{Web of Science}}\xspace}
+\newcommand{\Scopus}{\texttt{Scopus}\xspace}
+\newcommand{\arxiv}{{\texttt{arXiv.org}}\xspace}
+\newcommand{\pubmed}{{\texttt{pubmed}}\xspace}
+
+\newcommand{\JabRef}{\link{http://jabref.sf.net}{JabRef}\xspace}
+\newcommand{\Companion}[1]{\textit{\link{http://julib.fz-juelich.de/uhtbin/field-search-sort/001/PBYR/213964}{\LaTeX{} Companion}, #1}\xspace}
+\newcommand{\pkg}[1]{\emph{\texttt{#1}}\xspace}
+
+\newcommand{\neutralino}{\ensuremath{\tilde{\chi}^0}\xspace}
+
+% general colour definitions
+\newcommand{\smallgray}[1]{{\tiny\emph{#1}}}
+
+\newcommand{\idR}{i.~d.~R.\xspace}
+\newcommand{\va}{v.~a.\xspace}
+\newcommand{\sa}{s.~a.\xspace}
+\newcommand{\zB}{z.~B.\xspace}
+\newcommand{\zT}{z.~T.\xspace}
+\newcommand{\eg}{e.~g.\xspace}
+
+\newcommand{\bs}[1]{\texttt{$\backslash$#1}}
+\newcommand{\command}[2]{\texttt{\bs{#1}\{#2\}}}
+
+\newcommand{\invenio}{\href{http://invenio-software.org}{\raisebox{-0.5em}{\includegraphics[height=1.5em]{pictures/Logo_invenio}}}}
+\newcommand{\github}{\href{http://github.com}{%
+	\raisebox{-1em}{\includegraphics[height=2.0em]{pictures/Octocat}}%
+	\raisebox{-0.5em}{\includegraphics[height=1.5em]{pictures/GitHub_Logo}}}}
+
+\newcommand{\newitem}{\raisebox{-0.7ex}{\includegraphics[height=3ex]{img/new_icon}}}
+\newcommand{\newicon}{\raisebox{-1.1ex}{\includegraphics[height=4ex]{img/new_icon}}}
+\newcommand{\verytiny}[1]{{\fontsize{3}{4}\selectfont{#1}}}
+
+\newcommand{\DESYWord}{\raisebox{-5px}{\includegraphics[height=3.5ex]{img/DESY_Word}}\hspace*{0.2em}}
+
+\newcommand{\MailTo}[1]{\href{mailto:#1}{#1}}
+\newcommand{\DOIlink}[1]{\href{https://doi.org/#1}{\emph{#1}}}
+\newcommand{\ORCiD}[1]{\includegraphics[height=1.5ex]{img/orcid}\,\href{https://www.orcid.org/#1}{#1}}
+
+%%--%% % http://tex.stackexchange.com/questions/16447/beamer-top-aligning-columns-within-a-top-aligned-fram
+\makeatletter
+\newenvironment{topitemize}{%
+   \setlength{\topsep}{0pt}
+   \setlength{\partopsep}{0pt}
+   \renewcommand*{\@listi}{\leftmargin\leftmargini \parsep\z@ \topsep\z@ \itemsep\z@}
+   \let\@listI\@listi
+   \itemize
+}{\enditemize}
+\makeatother
+
+
+
+%------------------- Begin of edit -----------------------------------
+%
+% Adopt the follwing values according to your needs.
+%
+% Note: improving metadata also improves visibility. Time spent here
+% might pay of later. Search engines love keywords, abstracts and
+% sensible titles.
+%
+%     Make sure to submit your talk to the publications database
+%         to get a DOI, to make it citable and OpenAccess!
+%
+% \newcommand{\TITLE}{Main title}               % Title of talk
+% \newcommand{\SUBTITLE}{Subtitle}              % Subtitle
+% \newcommand{\AUTHOR}{Moritz Scham}        % your name
+% \newcommand{\DATE}{01.01.1900}                % Date of Talk
+
+\newcommand{\EMAIL}{moritz.scham@desy.de} % your email
+\newcommand{\ORCID}{0000--0001--9846--5516}   % your ORCiD
+\newcommand{\PHONE}{+49--40--8998--1758}      % your phone number
+\newcommand{\GROUP}{CMS-E}          % your group
+\newcommand{\URL}{http://library.desy.de}     % your groups page
+\newcommand{\DOI}{10.3204/PUBDB-20YY-nnnn}    % submit and release in pubdb to get a DOI
+\newcommand{\INSTITUTE}{DESY} % not used in CD 2018
+\newcommand{\CITY}{Hamburg}                      % City of talk
+
+% Derive internal values from above data
+
+\author{\AUTHOR}
+\title{\TITLE}
+\subtitle{\SUBTITLE}
+\institute{\INSTITUTE}
+\date{\CITY, \DATE}
+
+% To improve visibility - add metadata to the PDF
+% - Add sensible keywords describing the topic
+% - Add the abstract (one line, no breaks it is just for indexing)
+% - Adopt the licence of your work
+
+\hypersetup{
+	pdfsubject         = {Abstract},
+	pdfcopyright       = {CC-BY},
+	pdflicenseurl      = {http://creativecommons.org/licenses/by/4.0/},
+	%% pdfcopyright       = {CC-BY-NC-SA},
+	%% pdflicenseurl      = {http://creativecommons.org/licenses/by-nc-sa/4.0/},
+	pdftitle           = {\TITLE}
+	pdfcreator         = {\AUTHOR},
+	pdfcaptionwriter   = {\AUTHOR},
+	pdfcontactaddress  = {Notkestraße 85},
+	pdfcontactcity     = {Hamburg},
+	pdfcontactpostcode = {22607},
+	pdfcontactcountry  = {Germany},
+	pdfcontactemail    = {\EMAIL},
+	pdfcontacturl      = {\URL},
+	pdflang            = {en},
+	bookmarksopen      = true,
+	bookmarksopenlevel = 3,
+	hypertexnames      = false,
+	linktocpage        = true,
+	plainpages         = false,
+	breaklinks
+}
+
+%------------------- End of edit -------------------------------------
+
+
+\newcommand{\thankyou}{%
+    % Thank you page is assembled from metadata.tex
+    \begin{frame}
+        \frametitle{Thank you!}
+        \vfill{}
+        \vspace*{3.5cm}
+
+        % check %-% comments for inclusion of a QR code. This is not official
+        % DESY CD.
+
+        \fontsize{8}{9}\selectfont
+        \begin{columns}
+            \hspace*{-0.8em}
+            \hspace*{-1em}  % comment if QR code is inserted
+            %-% \begin{column}{0.75\textwidth}
+            \begin{column}{\textwidth}
+                \begin{tabular}{lll}
+                    \textbf{Contact}                     & \hspace*{0.5cm} &                 \\
+                                                        & \hspace*{0.5cm} &                 \\
+                    \hspace*{-0.4mm}\DESYWord{}Deutsches & \hspace*{0.5cm} & \AUTHOR         \\
+                    Elektronen-Synchrotron               %& \hspace*{0.5cm} & \ORCiD{\ORCID}\\
+                                                        & \hspace*{0.5cm} & \GROUP          \\
+                    www.desy.de                          & \hspace*{0.5cm} & \MailTo{\EMAIL} \\
+                    \\%& \hspace*{0.5cm} & \PHONE          \\
+                    % &\hspace*{0.5cm} & \DOIlink{\DOI}\\
+                \end{tabular}
+            \end{column}
+            %-% \begin{column}{0.24\textwidth}
+            %-% \includegraphics[width=0.8\textwidth]{img/aw-vcf-QRCode}\\
+            %-% 	{\tiny\textit{Typeset by lua\LaTeX}}
+            %-% \end{column}
+        \end{columns}
+    \end{frame}
+}
