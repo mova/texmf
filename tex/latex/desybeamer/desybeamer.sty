@@ -15,17 +15,17 @@
 % Libertine in all ``normal'' text areas. It seems they are not easily
 % accessible from the templates.
 \usefonttheme{professionalfonts} % using non standard fonts for beamer
-\setmainfont[Mapping=tex-text]{Liberation Sans}
-\setsansfont[Mapping=tex-text]{Liberation Sans}
+\setmainfont[Ligatures=TeX]{Liberation Sans}
+\setsansfont[Ligatures=TeX]{Liberation Sans}
 
 %% Force Liberation Sans for math as well like strict CD.
 %% However, usually TeX defaults just look way better
 % \RequirePackage{unicode-math}
 % \setmathfont{Liberation Sans} % for math symbols, can be any other OpenType math font
-% \setmathfont[range=\mathup]  {Liberation Sans}
-% \setmathfont[range=\mathbfup]{Liberation Sans Bold}
-% \setmathfont[range=\mathbfit]{Liberation Sans Bold Italic}
-% \setmathfont[range=\mathit]  {Liberation Sans Italic}
+% % \setmathfont[range=\mathup]  {Liberation Sans}
+% % \setmathfont[range=\mathbfup]{Liberation Sans Bold}
+% % \setmathfont[range=\mathbfit]{Liberation Sans Bold Italic}
+% % \setmathfont[range=\mathit]  {Liberation Sans Italic}
 
 \RequirePackage[ngerman,english]{babel}
 \RequirePackage{xspace}
@@ -191,10 +191,10 @@
                 \begin{tabular}{lll}
                     \textbf{Contact}                     & \hspace*{0.5cm} &                 \\
                                                         & \hspace*{0.5cm} &                 \\
-                    \hspace*{-0.4mm}\DESYWord{}Deutsches & \hspace*{0.5cm} & \AUTHOR         \\
+                    \hspace*{-0.4mm}\DESYWord{}Deutsches & \hspace*{0.5cm} &\AUTHOR         \\
                     Elektronen-Synchrotron               %& \hspace*{0.5cm} & \ORCiD{\ORCID}\\
-                                                        & \hspace*{0.5cm} & \GROUP          \\
-                    www.desy.de                          & \hspace*{0.5cm} & \MailTo{\EMAIL} \\
+                                                        & \hspace*{0.5cm} &\GROUP          \\
+                    www.desy.de                          & \hspace*{0.5cm} &\MailTo{\EMAIL} \\
                     \\%& \hspace*{0.5cm} & \PHONE          \\
                     % &\hspace*{0.5cm} & \DOIlink{\DOI}\\
                 \end{tabular}
@@ -206,3 +206,4 @@
         \end{columns}
     \end{frame}
 }
+

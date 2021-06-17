@@ -30,13 +30,14 @@
 \defbeamertemplate*{slide counter}{showall}[1][\translate{DESYSlideName}]
 {%
 {\usebeamercolor[fg]{date in head/foot}%
-#1~\insertframenumber\ \vrule width0.3pt height5pt\ \inserttotalframenumber%
+#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
 }%
 }
 \defbeamertemplate*{slide counter}{default}[1][\translate{DESYSlideName}]
 {%
 {\usebeamercolor[fg]{date in head/foot}%
-#1~\insertframenumber/\inserttotalframenumber%
+% #1~\insertframenumber/\insertmainframenumber%
+#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
 }%
 }
 
@@ -72,7 +73,8 @@
             \insertdate
             \hfill{}
             \usebeamercolor[fg]{page in head/foot}%
-            \textbf{\insertframenumber{}/\inserttotalframenumber}%
+            \textbf{\insertframenumber{}/\insertmainframenumber}%
+            \hspace*{.5cm}%
             }%
             % No big logo in CD 2018
             %\includegraphics[width=1.0cm]{img/DESY_Logo}%
