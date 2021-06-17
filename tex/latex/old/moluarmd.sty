@@ -1,0 +1,75 @@
+\RequirePackage{unicode-math}
+\RequirePackage{booktabs}
+\RequirePackage{fancyhdr}
+\RequirePackage{subcaption}
+\RequirePackage{pdfpages}
+%\RequirePackage{verbatim}
+%\RequirePackage[section]{placeins}
+%\RequirePackage{siunitx}
+%\RequirePackage{listings}
+%\RequirePackage{longtable}
+
+%\RequirePackage{float}
+%\RequirePackage{abstract}
+%\RequirePackage{amsrefs}
+
+%\usepackage{pgfplots}
+%\usepackage{forloop}
+%\RequirePackage{framed}
+%\RequirePackage{ifthen}
+%\RequirePackage{lettrine}
+%\RequirePackage{luatextra}
+%\RequirePackage{multicol}
+
+
+\RequirePackage{tabularx}
+%\usetikzlibrary{external}
+
+%\tikzset{external/system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname '\image' '\texsource'}}
+%\tikzexternalize[prefix=tikz/]
+%\pgfplotsset{compat=1.9}
+
+\RequirePackage{xcolor}
+%\usepackage{pdfpages}
+\RequirePackage[german,main=english]{babel}
+\RequirePackage{hyperref}
+
+\setmainfont[Numbers={Lining,Proportional}]{Linux Libertine O}
+\setsansfont{Ubuntu }
+\setmonofont{Ubuntu Mono}
+
+\usepackage{dsfont}
+\newcommand{\bY}{\boldsymbol{Y}}
+\newcommand{\bX}{\boldsymbol{X}}
+\newcommand{\bH}{\boldsymbol{H}}
+\newcommand{\bQ}{\boldsymbol{Q}}
+\newcommand{\bR}{\boldsymbol{R}}
+\newcommand{\bI}{\boldsymbol{I}}
+\newcommand{\bE}{\boldsymbol{\epsilon}}
+\newcommand{\bb}{\boldsymbol{\beta}}
+\newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\by}{\boldsymbol{y}}
+\newcommand{\id}{\mathds{1}}
+\newcommand{\cnd}{\mid \ddots}
+
+
+%\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+%\numberwithin{table}{section}
+%%\newboolean{header}
+%\renewcommand{\thefootnote}{\arabic{footnote}}
+%%\newcommand{\pfeil}{\boldmath $\rightarrow$}
+%\newcommand{\eqv}{\Leftrightarrow}
+%\newcommand{\imp}{\Rightarrow}
+
+\makeatletter
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\makeatother
+
+\preauthor{\centering\textsc}

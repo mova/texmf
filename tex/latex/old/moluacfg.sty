@@ -1,0 +1,96 @@
+%\RequirePackage{abstract}
+\RequirePackage{amsmath}
+\RequirePackage{amsrefs}
+\RequirePackage{amsfonts,amsthm,amssymb}
+\RequirePackage{unicode-math}
+\RequirePackage{booktabs}
+\RequirePackage{fancyhdr}
+%\RequirePackage{float}
+%\RequirePackage{fontspec}
+%\RequirePackage{grffile}
+\RequirePackage{subcaption}
+%\RequirePackage{morefloats}
+%\RequirePackage{footnote}
+%\RequirePackage[section]{placeins}
+%\RequirePackage{siunitx}
+%\RequirePackage{grffile}
+%\RequirePackage{wasysym}
+%\RequirePackage{geometry}
+%\geometry{a4paper,left=20mm,twoside, bottom=35mm, headheight=35pt}
+\RequirePackage{listings}
+\RequirePackage{longtable}
+\RequirePackage{pdfpages}
+\RequirePackage{verbatim}
+
+
+%\RequirePackage{framed}
+\RequirePackage{graphicx}
+%\RequirePackage{ifthen}
+%\RequirePackage{lettrine}
+%\RequirePackage{listings}
+%\RequirePackage{luatextra}
+%\RequirePackage{lua-visual-debug}
+\RequirePackage{multicol}
+\RequirePackage{tabularx}
+%\usepackage{pgfplots}
+%\usepackage{forloop}
+%\usetikzlibrary{external}
+
+%\tikzset{external/system call={lualatex \tikzexternalcheckshellescape -halt-on-error -interaction=batchmode -jobname '\image' '\texsource'}}
+%\tikzexternalize[prefix=tikz/]
+%\pgfplotsset{compat=1.9}
+
+\RequirePackage{xcolor}
+%\usepackage{pdfpages}
+\RequirePackage[german,main=english]{babel}
+\RequirePackage{hyperref}
+
+%\setmonofont{Ubuntu Mono}
+\setromanfont[Numbers={Lining,Proportional}]{Linux Libertine O}
+%\setsansfont{Ubuntu}
+
+\numberwithin{equation}{section}
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+%\newboolean{header}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+%\newcommand{\pfeil}{\boldmath $\rightarrow$}
+\newcommand{\eqv}{\Leftrightarrow}
+\newcommand{\imp}{\Rightarrow}
+
+\makeatletter
+\DeclareOldFontCommand{\rm}{\normalfont\rmfamily}{\mathrm}
+\DeclareOldFontCommand{\sf}{\normalfont\sffamily}{\mathsf}
+\DeclareOldFontCommand{\tt}{\normalfont\ttfamily}{\mathtt}
+\DeclareOldFontCommand{\bf}{\normalfont\bfseries}{\mathbf}
+\DeclareOldFontCommand{\it}{\normalfont\itshape}{\mathit}
+\DeclareOldFontCommand{\sl}{\normalfont\slshape}{\@nomath\sl}
+\DeclareOldFontCommand{\sc}{\normalfont\scshape}{\@nomath\sc}
+\makeatother
+
+\hypersetup{
+bookmarks=true,
+bookmarksnumbered=true,
+pdfborder={0 0 0},
+colorlinks=false
+}
+\title{\inserttitle}
+\date{\insertdate}
+\author{\insertauthor}
+
+%\AtBeginDocument{
+	%\pagestyle{fancy}
+	%\fancyhf{}
+	%\fancyfoot[C]{\footnotesize \rmfamily \textsc{\insertauthor}}
+	%\fancyfoot[R]{\numold \thepage}
+	%\fancyhead[L]{\large \inserttitle}
+	%\renewcommand{\footrulewidth}{0.4pt}
+	%\renewcommand{\headrulewidth}{0.4pt}
+	%\selectlanguage{ngerman}
+%}
+%\newcommand\getcurrentref[1]{%
+ %\ifnumequal{\value{#1}}{0}
+  %{??}
+  %{\the\value{#1}}%
+%}
+
