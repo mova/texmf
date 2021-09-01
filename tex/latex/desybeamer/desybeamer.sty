@@ -20,12 +20,9 @@
 
 %% Force Liberation Sans for math as well like strict CD.
 %% However, usually TeX defaults just look way better
-% \RequirePackage{unicode-math}
-% \setmathfont{Liberation Sans} % for math symbols, can be any other OpenType math font
-% % \setmathfont[range=\mathup]  {Liberation Sans}
-% % \setmathfont[range=\mathbfup]{Liberation Sans Bold}
-% % \setmathfont[range=\mathbfit]{Liberation Sans Bold Italic}
-% % \setmathfont[range=\mathit]  {Liberation Sans Italic}
+\RequirePackage{unicode-math}
+\setmathfont[bold-style=ISO]{Libertinus Math} % for math symbols, can be any other OpenType math font
+
 
 \RequirePackage[ngerman,english]{babel}
 \RequirePackage{xspace}
@@ -124,11 +121,11 @@
 % \newcommand{\DATE}{01.01.1900}                % Date of Talk
 
 \newcommand{\EMAIL}{moritz.scham@desy.de} % your email
-\newcommand{\ORCID}{0000--0001--9846--5516}   % your ORCiD
+\newcommand{\ORCID}{0000--0000--0000--0000}   % your ORCiD
 \newcommand{\PHONE}{+49--40--8998--1758}      % your phone number
 \newcommand{\GROUP}{CMS-E}          % your group
-\newcommand{\URL}{http://library.desy.de}     % your groups page
-\newcommand{\DOI}{10.3204/PUBDB-20YY-nnnn}    % submit and release in pubdb to get a DOI
+\newcommand{\URL}{https://cms.desy.de/activities/physics/susy/supersymmetry/}     % your groups page
+\newcommand{\DOI}{00.0000/PUBDB-20YY-nnnn}    % submit and release in pubdb to get a DOI
 \newcommand{\INSTITUTE}{DESY} % not used in CD 2018
 \newcommand{\CITY}{Hamburg}                      % City of talk
 
@@ -138,7 +135,7 @@
 \title{\TITLE}
 \subtitle{\SUBTITLE}
 \institute{\INSTITUTE}
-\date{\CITY, \DATE}
+\date{\DATE}
 
 % To improve visibility - add metadata to the PDF
 % - Add sensible keywords describing the topic
