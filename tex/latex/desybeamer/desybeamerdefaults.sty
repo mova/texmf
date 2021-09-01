@@ -1,0 +1,50 @@
+% side captions
+\usepackage[rightcaption]{sidecap}
+\sidecaptionvpos{figure}{c}
+% \usepackage[luatex]{pdflscape}
+\makeatletter
+\newcommand{\mycap}[2][\@nil]{%
+  \def\tmp{#1}%
+   \ifx\tmp\@nnil
+      \caption[#2]{\textbar\,\textbf{#2}}
+    \else
+      \caption[#1]{\textbar\,\textbf{#1} \newline\normalfont\small #2}
+    \fi}
+\makeatother
+
+% side captions
+\usepackage[rightcaption]{sidecap}
+\sidecaptionvpos{figure}{c}
+\usepackage[luatex]{pdflscape}
+\usepackage{float}
+% Customising captions in floating environments
+\usepackage[labelfont={bf}]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup[table]{labelsep=space}
+\captionsetup[figure]{labelsep=space}
+%% indent between »Figure 1.2« and the descrition in the following line
+
+
+\usepackage{subcaption}
+\captionsetup{subrefformat=parens}
+
+\newcommand{\imp}{\ensuremath{\Rightarrow}}
+\usepackage{listings}
+\usepackage{multicol}
+
+%python code formatting
+\usepackage{ipython}
+
+%%% Slide at Section Start
+\AtBeginSection[]{
+  \begin{frame}
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+
