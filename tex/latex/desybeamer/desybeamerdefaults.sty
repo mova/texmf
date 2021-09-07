@@ -1,50 +1,84 @@
-% side captions
-\usepackage[rightcaption]{sidecap}
-\sidecaptionvpos{figure}{c}
-% \usepackage[luatex]{pdflscape}
-\makeatletter
-\newcommand{\mycap}[2][\@nil]{%
-  \def\tmp{#1}%
-   \ifx\tmp\@nnil
-      \caption[#2]{\textbar\,\textbf{#2}}
-    \else
-      \caption[#1]{\textbar\,\textbf{#1} \newline\normalfont\small #2}
-    \fi}
-\makeatother
+%%% Common Packages
+\RequirePackage{booktabs}
+\RequirePackage{ipython}
+\RequirePackage{listings}
+\RequirePackage{multicol}
 
+%%% Captions %%%
 % side captions
-\usepackage[rightcaption]{sidecap}
+\RequirePackage[rightcaption]{sidecap}
 \sidecaptionvpos{figure}{c}
-\usepackage[luatex]{pdflscape}
-\usepackage{float}
+\RequirePackage[luatex]{pdflscape}
+
+\RequirePackage{float}
 % Customising captions in floating environments
-\usepackage[labelfont={bf}]{caption}
+\RequirePackage[labelfont={bf}]{caption}
 \captionsetup{singlelinecheck=off}
 \captionsetup[table]{labelsep=space}
 \captionsetup[figure]{labelsep=space}
 %% indent between »Figure 1.2« and the descrition in the following line
 
 
-\usepackage{subcaption}
+\makeatletter
+\newcommand{\mycap}[2][\@nil]{%
+	\def\tmp{#1}%
+	\ifx\tmp\@nnil
+		\caption[#2]{\textbar\,\textbf{#2}}
+	\else
+		\caption[#1]{\textbar\,\textbf{#1} \newline\normalfont\small #2}
+	\fi}
+\makeatother
+
+\RequirePackage{subcaption}
 \captionsetup{subrefformat=parens}
+%%% Captions End %%%
+
+
 
 \newcommand{\imp}{\ensuremath{\Rightarrow}}
-\usepackage{listings}
-\usepackage{multicol}
 
-%python code formatting
-\usepackage{ipython}
 
-%%% Slide at Section Start
-\AtBeginSection[]{
-  \begin{frame}
-  \vfill
-  \centering
-  \begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=true]{title}
-    \usebeamerfont{title}\insertsectionhead\par%
-  \end{beamercolorbox}
-  \vfill
-  \end{frame}
+%%% Declare options
+\DeclareOption{sectionslide}{
+	\AtBeginSection[]{
+		\begin{frame}
+			\vfill
+			\centering
+			\begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=true]{title}
+				\usebeamerfont{title}\insertsectionhead\par%
+			\end{beamercolorbox}
+			\vfill
+		\end{frame}
+	}
 }
+\ProcessOptions\relax
 
+% Use checkboxes etc. in itemizen envs
+\RequirePackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
 
+% Custom commands for just including images
+\newcommand{\icg}[1]{\includegraphics[keepaspectratio,width=.9\textwidth,height=.8\textheight]{#1}}
+
+\newcommand{\imgframe}[3]{%
+	{ % all template changes are local to this group.
+			\setbeamertemplate{navigation symbols}{}
+			\begin{frame}<article:0>[plain]
+				\begin{tikzpicture}[remember picture,overlay]
+					\node[anchor=north west,at=(current page.north west), yshift=-.7cm, align=left] {
+						#2
+					};
+					\node[anchor=south west,at=(current page.south west), yshift=.7cm, align=left] {
+						#3
+					};
+					\node[anchor=east,at=(current page.east)] {
+						\includegraphics[keepaspectratio,
+							width=\paperwidth,
+							height=\paperheight]{#1}
+					};
+				\end{tikzpicture}
+			\end{frame}
+		}}
