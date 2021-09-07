@@ -1,0 +1,23 @@
+\ProvidesPackage{mobeamercommands}[Custom Commands to safe time]
+% Custom commands for just including images
+\newcommand{\icg}[1]{\includegraphics[keepaspectratio,width=.9\textwidth,height=.8\textheight]{#1}}
+
+\newcommand{\imgframe}[3]{%
+	{ % all template changes are local to this group.
+			\setbeamertemplate{navigation symbols}{}
+			\begin{frame}<article:0>[plain]
+				\begin{tikzpicture}[remember picture,overlay]
+					\node[anchor=north west,at=(current page.north west), yshift=-.7cm, align=left] {
+						#2
+					};
+					\node[anchor=south west,at=(current page.south west), yshift=.7cm, align=left] {
+						#3
+					};
+					\node[anchor=east,at=(current page.east)] {
+						\includegraphics[keepaspectratio,
+							width=\paperwidth,
+							height=\paperheight]{#1}
+					};
+				\end{tikzpicture}
+			\end{frame}
+		}}

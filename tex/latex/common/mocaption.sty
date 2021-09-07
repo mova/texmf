@@ -1,0 +1,30 @@
+\ProvidesPackage{mocaption}[Custom Commands to safe time]
+
+%%% Captions %%%
+% side captions
+\RequirePackage[rightcaption]{sidecap}
+\sidecaptionvpos{figure}{c}
+\RequirePackage[luatex]{pdflscape}
+
+\RequirePackage{float}
+% Customising captions in floating environments
+\RequirePackage[labelfont={bf}]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup[table]{labelsep=space}
+\captionsetup[figure]{labelsep=space}
+%% indent between »Figure 1.2« and the descrition in the following line
+
+
+\makeatletter
+\newcommand{\mycap}[2][\@nil]{%
+	\def\tmp{#1}%
+	\ifx\tmp\@nnil
+		\caption[#2]{\textbar\,\textbf{#2}}
+	\else
+		\caption[#1]{\textbar\,\textbf{#1} \newline\normalfont\small #2}
+	\fi}
+\makeatother
+
+\RequirePackage{subcaption}
+\captionsetup{subrefformat=parens}
+%%% Captions End %%%

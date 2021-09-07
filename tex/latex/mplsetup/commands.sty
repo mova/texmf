@@ -1,13 +1,5 @@
 \ProvidesPackage{commands}[Custom Commands to safe time]
-\makeatletter
-\newcommand{\mycap}[2][\@nil]{%
-  \def\tmp{#1}%
-   \ifx\tmp\@nnil
-      \caption[#2]{\textbar\,\textbf{#2}}
-    \else
-      \caption[#1]{\textbar\,\textbf{#1} \newline\normalfont\small #2}
-    \fi}
-\makeatother
+
 
 \newcommand{\tc}[1]{\texttt{#1}}
 \newcommand{\sfhalf}[1]{%
