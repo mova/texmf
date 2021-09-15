@@ -57,7 +57,7 @@
 % \newcommand{\Inspec}{{\texttt{Inspec}}\xspace}
 % \newcommand{\WoS}{{\texttt{Web of Science}}\xspace}
 % \newcommand{\Scopus}{\texttt{Scopus}\xspace}
-% \newcommand{\arxiv}{{\texttt{arXiv.org}}\xspace}
+\newcommand{\arxiv}{{\texttt{arXiv.org}}\xspace}
 % \newcommand{\pubmed}{{\texttt{pubmed}}\xspace}
 
 % \newcommand{\JabRef}{\link{http://jabref.sf.net}{JabRef}\xspace}
@@ -175,31 +175,20 @@
         \frametitle{Thank you!}
         \vfill{}
         \vspace*{3.5cm}
-
-        % check %-% comments for inclusion of a QR code. This is not official
-        % DESY CD.
-
         \fontsize{8}{9}\selectfont
         \begin{columns}
-            \hspace*{-0.8em}
-            \hspace*{-1em}  % comment if QR code is inserted
-            %-% \begin{column}{0.75\textwidth}
-            \begin{column}{\textwidth}
-                \begin{tabular}{lll}
-                    \textbf{Contact}                     & \hspace*{0.5cm} &                 \\
-                                                        & \hspace*{0.5cm} &                 \\
-                    \hspace*{-0.4mm}\DESYWord{}Deutsches & \hspace*{0.5cm} &\AUTHOR         \\
-                    Elektronen-Synchrotron               %& \hspace*{0.5cm} & \ORCiD{\ORCID}\\
-                                                        & \hspace*{0.5cm} &\GROUP          \\
-                    www.desy.de                          & \hspace*{0.5cm} &\MailTo{\EMAIL} \\
-                    \\%& \hspace*{0.5cm} & \PHONE          \\
-                    % &\hspace*{0.5cm} & \DOIlink{\DOI}\\
-                \end{tabular}
+            \begin{column}{.49\textwidth}
+                    \textbf{Contact}\\
+                    \hspace*{-0.4mm}\DESYWord{}Deutsches \\
+                    Elektronen-Synchrotron\\
+                    www.desy.de\\
             \end{column}
-            %-% \begin{column}{0.24\textwidth}
-            %-% \includegraphics[width=0.8\textwidth]{img/aw-vcf-QRCode}\\
-            %-% 	{\tiny\textit{Typeset by lua\LaTeX}}
-            %-% \end{column}
+            \begin{column}{.49\textwidth}
+                    \hspace*{0.5cm} \\
+                    \AUTHOR         \\
+                    \GROUP          \\
+                    \MailTo{\EMAIL}
+            \end{column}
         \end{columns}
     \end{frame}
 }
