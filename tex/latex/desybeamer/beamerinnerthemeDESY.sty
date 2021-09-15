@@ -4,6 +4,8 @@
 
 \mode<presentation>
 
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing,calc,tikzmark}
 
 \setlength\leftmargin{0cm}% 2ex+0.75ex (1/2)
 \setlength\rightmargin{0cm}% 2ex+0.75ex (1/2)
@@ -38,12 +40,22 @@
       % Set the box width to only 50% of the text width. This avoids
       % covering the logo for very long headlines, but requires
       % explicit unindentation.
-      \hskip-2.5ex
-      \begin{beamercolorbox}[sep=0.55cm,wd=0.5\textwidth,left]{author}
-         \vskip0.5cm
-         {\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor}\break
-         {\usebeamerfont{author}\usebeamercolor[fg]{normal text}\insertdate}%
+
+      \hspace{0.6\textwidth}\tikzmark{rightancor}\\
+      \begin{beamercolorbox}[sep=0.55cm,wd=0.6\textwidth,left]{author}
+        \tikzmark{topancor}
+        \usebeamerfont{author}\usebeamercolor[fg]{author}\noindent\insertauthor
+        \tikzmark{bottomancor}
+        \\$~~$\break
+        {\usebeamerfont{author}\usebeamercolor[fg]{normal text}\insertdate}%
       \end{beamercolorbox}%
+      \begin{tikzpicture}[overlay, remember picture]
+        \node[anchor=base] (a) at (pic cs:topancor) {\vphantom{h}}; % push the mark to the top of the line (ie including ascenders)
+        \node[anchor=base] (b) at (pic cs:bottomancor) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
+        \draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,gray]
+         (a.north -| {pic cs:rightancor}) -- (b.south -| {pic cs:rightancor}) node [pos=0.5, anchor=west, align=left, color=black, xshift=1em] {\Large\usebeamercolor[fg]{framesubtitle} HamGen};
+        %  text width=2.8cm,
+      \end{tikzpicture}
 }
 
 
