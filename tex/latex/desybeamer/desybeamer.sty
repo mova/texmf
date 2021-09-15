@@ -118,11 +118,6 @@
 %     Make sure to submit your talk to the publications database
 %         to get a DOI, to make it citable and OpenAccess!
 %
-% \newcommand{\TITLE}{Main title}               % Title of talk
-% \newcommand{\SUBTITLE}{Subtitle}              % Subtitle
-% \newcommand{\AUTHOR}{Moritz Scham}        % your name
-% \newcommand{\DATE}{01.01.1900}                % Date of Talk
-
 \newcommand{\EMAIL}{moritz.scham@desy.de} % your email
 \newcommand{\ORCID}{0000--0000--0000--0000}   % your ORCiD
 \newcommand{\PHONE}{+49--40--8998--1758}      % your phone number
@@ -133,8 +128,8 @@
 \newcommand{\CITY}{Hamburg}                      % City of talk
 
 % Derive internal values from above data
-
-\author{\AUTHOR}
+% If defined, show the collaboration as author
+\ifdef{\COLLABORATION}{\author[\COLLABORATION]{\AUTHOR}}{\author{\AUTHOR}}
 \title{\TITLE}
 \subtitle{\SUBTITLE}
 \institute{\INSTITUTE}
