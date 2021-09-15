@@ -129,26 +129,20 @@
 }%
 
 
-\defbeamertemplate*{sidebar right}{DESYTitle}
+\defbeamertemplate*{footline}{DESYTitle}
 {%
-  % titlepage: set a larger DESY logo to the lower right
-  \vfill%
-  \vspace*{0.5cm}
-  \llap{%
-  \mbox{
-  \includegraphics[height=1.3cm]{img/DESY_Logo}%
-  \hspace*{0.5cm}
-  }
-  }% titleframe-sized logo
-}
 
-\defbeamertemplate*{sidebar left}{DESYTitle}
-{%
-  % titlepage: set a HGF logo to the lower left
-  \vfill%
-  \mbox{\hspace*{0.3cm}
-  \includegraphics[height=0.5cm]{img/HGF_Logo}%
-  }
+\makebox[\paperwidth]{
+  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/helmholtzai.pdf}%
+  \hfill
+  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/uuh.pdf}%
+  \hfill
+  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/juelich.pdf}%
+  \hfill
+  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/trimf.jpg}%
+  \hfill
+  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/DESY_Logo}%
+}
 }
 
 \defbeamertemplate*{sidebar right}{DESY}
@@ -197,9 +191,10 @@
 % Title slide
 \def\maketitle{%
 \setbeamertemplate{background canvas}[DESYTitle]
-\setbeamertemplate{sidebar canvas left}[DESYTitle]
-\setbeamertemplate{sidebar right}[DESYTitle]
+% \setbeamertemplate{sidebar canvas left}[DESYTitle]
+\setbeamertemplate{logos}[DESYTitle]
 \setbeamertemplate{footline}{}
+\setbeamertemplate{footline}[DESYTitle]
 \begin{frame}[t]
 \vskip-\headheight%
 \vbox{}%
