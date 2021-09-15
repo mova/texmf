@@ -17,9 +17,17 @@
 ]{unicode-math}
 \setmathfont{Libertinus Math}
 \setmathrm{Libertinus Serif}
-\usepackage{fontspec}
-\setmainfont[RawFeature=+kern;+liga;+calt]{Libertinus Serif}
-\setsansfont{Libertinus Sans}
+
+\DeclareOption{beamer}{%
+\setmainfont[Ligatures=TeX]{Liberation Sans}
+\setsansfont[Ligatures=TeX]{Liberation Sans}
+}
+\DeclareOption{nobeamer}{%
+    \usepackage{fontspec}
+    \setmainfont[RawFeature=+kern;+liga;+calt]{Libertinus Serif}
+    \setsansfont{Libertinus Sans}
+}
+\ProcessOptions\relax
 
 
 \usepackage{polyglossia}
