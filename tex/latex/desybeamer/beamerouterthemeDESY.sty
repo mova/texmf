@@ -124,13 +124,17 @@
 }%
 
 
+\definecolor{helmholtzblue}{RGB}{0, 87,155}
+
 \defbeamertemplate*{footline}{DESYTitle}
 {%
 
 \makebox[\paperwidth]{
   \hspace{1.5em}
-  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/helmholtzai.pdf}
-  DeGeSim
+  \begin{tikzpicture}
+    \node[anchor=south west] at (0,0) (img) {\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/helmholtzai.pdf}};
+    \node[anchor=south west] at (0,.8) {\small \color{helmholtzblue} \textbf{The DeGeSim Project}};
+ \end{tikzpicture}
   \hfill
   \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/uuh.pdf}%
   \hfill
