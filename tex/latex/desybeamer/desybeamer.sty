@@ -178,13 +178,14 @@
         \fontsize{8}{9}\selectfont
         \begin{columns}
             \begin{column}{.49\textwidth}
-                    \textbf{Contact}\\
+                    % \textbf{Contact}\\
                     \hspace*{-0.4mm}\DESYWord{}Deutsches \\
                     Elektronen-Synchrotron\\
                     www.desy.de\\
             \end{column}
             \begin{column}{.49\textwidth}
-                    \hspace*{0.5cm} \\
+                    % \hspace*{0.5cm} \\
+                    \ifdef{\COLLABORATION}{{\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION}\vspace{3ex}\break}{}
                     \AUTHOR         \\
                     \GROUP          \\
                     \MailTo{\EMAIL}
