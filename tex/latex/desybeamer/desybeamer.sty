@@ -169,28 +169,38 @@ breaklinks
 %------------------- End of edit -------------------------------------
 
 
-\newcommand{\thankyou}{%
-	% Thank you page is assembled from metadata.tex
-	\begin{frame}
-		\frametitle{Thank you!}
-		\vfill{}
-		\vspace*{3.5cm}
-		\fontsize{8}{9}\selectfont
-		\begin{columns}
-			\begin{column}{.49\textwidth}
-				% \textbf{Contact}\\
-				\hspace*{-0.4mm}\DESYWord{}Deutsches \\
-				Elektronen-Synchrotron\\
-				www.desy.de\\
-			\end{column}
-			\begin{column}{.49\textwidth}
-				% \hspace*{0.5cm} \\
-				\ifdef{\COLLABORATION}{{\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION}\vspace{3ex}\break}{}
-				\AUTHOR         \\
-				\GROUP          \\
-				\MailTo{\EMAIL}
-			\end{column}
-		\end{columns}
-	\end{frame}
-}
+%%% Common Packages
+\RequirePackage{booktabs}
+\RequirePackage{ipython}
+\RequirePackage{listings}
+\RequirePackage{multicol}
 
+\RequirePackage{mocaption}
+
+\newcommand{\imp}{\ensuremath{\Rightarrow}\xspace}
+
+%%% Declare options
+\DeclareOption{sectionslide}{
+	\AtBeginSection[]{
+		\begin{frame}
+			\vfill
+			\centering
+			\begin{beamercolorbox}[sep=8pt,center,shadow=false,rounded=true]{title}
+				\usebeamerfont{title}\insertsectionhead\par%
+			\end{beamercolorbox}
+			\vfill
+		\end{frame}
+	}
+}
+\ProcessOptions\relax
+
+% Use checkboxes etc. in itemizen envs
+\RequirePackage{pifont}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+\newcommand{\done}{\rlap{$\square$}{\raisebox{2pt}{\large\hspace{1pt}\cmark}}\hspace{-2.5pt}}
+\newcommand{\wontfix}{\rlap{$\square$}{\large\hspace{1pt}\xmark}}
+
+\RequirePackage{mobeamercommands}
+\RequirePackage{commands}
+\RequirePackage{thesisshortcuts}
