@@ -32,17 +32,17 @@
 \RequirePackage{tikz}
 \RequirePackage{fancyvrb}
 \tikzset{%
-  every overlay node/.style={%
-    %draw=black,fill=white,rounded corners,anchor=north west,
-    draw=fzjlightblue,fill=fzjgray30,rounded corners,anchor=north west,
-  },
+	every overlay node/.style={%
+			%draw=black,fill=white,rounded corners,anchor=north west,
+			draw=fzjlightblue,fill=fzjgray30,rounded corners,anchor=north west,
+		},
 }
 % Usage:
 % \tikzoverlay at (-1cm,-5cm) {content};
 % or
 % \tikzoverlay[text width=5cm] at (-1cm,-5cm) {content};
 \def\tikzoverlay{%
-   \tikz[baseline,overlay]\node[every overlay node]
+	\tikz[baseline,overlay]\node[every overlay node]
 }%
 
 % General new commands an macros
@@ -143,54 +143,54 @@
 \RequirePackage{hyperxmp}
 \RequirePackage{hyperref}
 \hypersetup{
-	% pdfsubject         = {Abstract},
-	% pdfcopyright       = {CC-BY},
-	% pdflicenseurl      = {http://creativecommons.org/licenses/by/4.0/},
-	%% pdfcopyright       = {CC-BY-NC-SA},
-	%% pdflicenseurl      = {http://creativecommons.org/licenses/by-nc-sa/4.0/},
-	pdftitle           = {\TITLE}
-	pdfcreator         = {\AUTHOR},
-	pdfcaptionwriter   = {\AUTHOR},
-	pdfcontactaddress  = {Notkestraße 85},
-	pdfcontactcity     = {Hamburg},
-	pdfcontactpostcode = {22607},
-	pdfcontactcountry  = {Germany},
-	pdfcontactemail    = {\EMAIL},
-	pdfcontacturl      = {\URL},
-	pdflang            = {en},
-	bookmarksopen      = true,
-	bookmarksopenlevel = 3,
-	hypertexnames      = false,
-	linktocpage        = true,
-	plainpages         = false,
-	breaklinks
+% pdfsubject         = {Abstract},
+% pdfcopyright       = {CC-BY},
+% pdflicenseurl      = {http://creativecommons.org/licenses/by/4.0/},
+%% pdfcopyright       = {CC-BY-NC-SA},
+%% pdflicenseurl      = {http://creativecommons.org/licenses/by-nc-sa/4.0/},
+pdftitle           = {\TITLE}
+pdfcreator         = {\AUTHOR},
+pdfcaptionwriter   = {\AUTHOR},
+pdfcontactaddress  = {Notkestraße 85},
+pdfcontactcity     = {Hamburg},
+pdfcontactpostcode = {22607},
+pdfcontactcountry  = {Germany},
+pdfcontactemail    = {\EMAIL},
+pdfcontacturl      = {\URL},
+pdflang            = {en},
+bookmarksopen      = true,
+bookmarksopenlevel = 3,
+hypertexnames      = false,
+linktocpage        = true,
+plainpages         = false,
+breaklinks
 }
 
 %------------------- End of edit -------------------------------------
 
 
 \newcommand{\thankyou}{%
-    % Thank you page is assembled from metadata.tex
-    \begin{frame}
-        \frametitle{Thank you!}
-        \vfill{}
-        \vspace*{3.5cm}
-        \fontsize{8}{9}\selectfont
-        \begin{columns}
-            \begin{column}{.49\textwidth}
-                    % \textbf{Contact}\\
-                    \hspace*{-0.4mm}\DESYWord{}Deutsches \\
-                    Elektronen-Synchrotron\\
-                    www.desy.de\\
-            \end{column}
-            \begin{column}{.49\textwidth}
-                    % \hspace*{0.5cm} \\
-                    \ifdef{\COLLABORATION}{{\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION}\vspace{3ex}\break}{}
-                    \AUTHOR         \\
-                    \GROUP          \\
-                    \MailTo{\EMAIL}
-            \end{column}
-        \end{columns}
-    \end{frame}
+	% Thank you page is assembled from metadata.tex
+	\begin{frame}
+		\frametitle{Thank you!}
+		\vfill{}
+		\vspace*{3.5cm}
+		\fontsize{8}{9}\selectfont
+		\begin{columns}
+			\begin{column}{.49\textwidth}
+				% \textbf{Contact}\\
+				\hspace*{-0.4mm}\DESYWord{}Deutsches \\
+				Elektronen-Synchrotron\\
+				www.desy.de\\
+			\end{column}
+			\begin{column}{.49\textwidth}
+				% \hspace*{0.5cm} \\
+				\ifdef{\COLLABORATION}{{\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION}\vspace{3ex}\break}{}
+				\AUTHOR         \\
+				\GROUP          \\
+				\MailTo{\EMAIL}
+			\end{column}
+		\end{columns}
+	\end{frame}
 }
 

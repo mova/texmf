@@ -10,11 +10,11 @@
 % reduced navigation symbol set
 \defbeamertemplate*{navigation symbols}{DESY}
 {%
-  \hbox{%
-    \hbox{\insertframenavigationsymbol}
-    \hbox{\insertsubsectionnavigationsymbol}
-    \hbox{\insertsectionnavigationsymbol}
-  }%
+	\hbox{%
+		\hbox{\insertframenavigationsymbol}
+		\hbox{\insertsubsectionnavigationsymbol}
+		\hbox{\insertsectionnavigationsymbol}
+	}%
 }
 \defbeamertemplate*{navigation symbols}{plain}
 {%
@@ -29,58 +29,58 @@
 }
 \defbeamertemplate*{slide counter}{showall}[1][\translate{DESYSlideName}]
 {%
-{\usebeamercolor[fg]{date in head/foot}%
-#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
-}%
+	{\usebeamercolor[fg]{date in head/foot}%
+			#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
+		}%
 }
 \defbeamertemplate*{slide counter}{default}[1][\translate{DESYSlideName}]
 {%
-{\usebeamercolor[fg]{date in head/foot}%
-% #1~\insertframenumber/\insertmainframenumber%
-#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
-}%
+	{\usebeamercolor[fg]{date in head/foot}%
+			% #1~\insertframenumber/\insertmainframenumber%
+			#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
+		}%
 }
 
 
 % Headline and footline
 \defbeamertemplate*{headline}{DESY}
 {%
-%\begin{beamercolorbox}[leftskip=7.5mm,ht=10mm,dp=0mm]{header}
-%\end{beamercolorbox}
+	%\begin{beamercolorbox}[leftskip=7.5mm,ht=10mm,dp=0mm]{header}
+	%\end{beamercolorbox}
 }
 
 
 \defbeamertemplate*{footline}{DESY}
 {%
-    \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-    \@tempdima=\textwidth%
-    \advance\@tempdima by\beamer@leftmargin%
-    \advance\@tempdima by\beamer@rightmargin%
-    \begin{beamercolorbox}[sep=0.35cm,wd=\the\@tempdima,ht=2.25ex,dp=0ex,center]{section in head/foot}%
-       \begin{beamercolorbox}[leftskip=5mm,ht=3.5mm,dp=0.0mm]{header}
-            \usebeamercolor[fg]{date in head/foot}%
-            {\usebeamerfont{title in head/foot}%
-            \raisebox{-4.8px}{\includegraphics[height=4ex]{img/DESY_Word}}
-            \hspace*{0.5em}|\hspace*{0.5em}%
-            \usebeamercolor[fg]{title in head/foot}%
-            \inserttitle%
-            \hspace*{0.5em}|\hspace*{0.5em}%
-            \usebeamercolor[fg]{author in head/foot}%
-            \insertshortauthor%
-            \hspace*{0.5em}|\hspace*{0.5em}%
-            \usebeamercolor[fg]{date in head/foot}%
-            \insertdate
-            \hfill{}
-            \usebeamercolor[fg]{page in head/foot}%
-            \textbf{\insertframenumber{}/\insertmainframenumber}%
-            \hspace*{.5cm}%
-            }%
-            \ifbeamertemplateempty{footer element1}{}{%
-                \usebeamertemplate*{footer element1}%
-                \hfill%
-            }%
-        \end{beamercolorbox}%
-    \end{beamercolorbox}%
+	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+	\@tempdima=\textwidth%
+	\advance\@tempdima by\beamer@leftmargin%
+	\advance\@tempdima by\beamer@rightmargin%
+	\begin{beamercolorbox}[sep=0.35cm,wd=\the\@tempdima,ht=2.25ex,dp=0ex,center]{section in head/foot}%
+		\begin{beamercolorbox}[leftskip=5mm,ht=3.5mm,dp=0.0mm]{header}
+			\usebeamercolor[fg]{date in head/foot}%
+			{\usebeamerfont{title in head/foot}%
+				\raisebox{-4.8px}{\includegraphics[height=4ex]{img/DESY_Word}}
+				\hspace*{0.5em}|\hspace*{0.5em}%
+				\usebeamercolor[fg]{title in head/foot}%
+				\inserttitle%
+				\hspace*{0.5em}|\hspace*{0.5em}%
+				\usebeamercolor[fg]{author in head/foot}%
+				\insertshortauthor%
+				\hspace*{0.5em}|\hspace*{0.5em}%
+				\usebeamercolor[fg]{date in head/foot}%
+				\insertdate
+				\hfill{}
+				\usebeamercolor[fg]{page in head/foot}%
+				\textbf{\insertframenumber{}/\insertmainframenumber}%
+				\hspace*{.5cm}%
+			}%
+			\ifbeamertemplateempty{footer element1}{}{%
+				\usebeamertemplate*{footer element1}%
+				\hfill%
+			}%
+		\end{beamercolorbox}%
+	\end{beamercolorbox}%
 }
 
 % Background
@@ -109,7 +109,7 @@
 %Logos
 \defbeamertemplate*{logo partner1}{show}[1][]
 {%
-  \includegraphics[height=1.2240cm]{#1}
+	\includegraphics[height=1.2240cm]{#1}
 }%
 \defbeamertemplate*{logo partner1}{hide}[1][]
 {%
@@ -117,7 +117,7 @@
 
 \defbeamertemplate*{logo partner2}{show}[1][]
 {%
-\includegraphics[height=1.2240cm]{#1}
+	\includegraphics[height=1.2240cm]{#1}
 }%
 \defbeamertemplate*{logo partner2}{hide}[1][]
 {%
@@ -129,29 +129,29 @@
 \defbeamertemplate*{footline}{DESYTitle}
 {%
 
-\makebox[\paperwidth]{
-  \hspace{1.5em}
-  \begin{tikzpicture}
-    \node[anchor=south west] at (0,0) (img) {\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/helmholtzai.pdf}};
-    \node[anchor=south west] at (0,.8) {\small \color{helmholtzblue} \textbf{The DeGeSim Project}};
- \end{tikzpicture}
-  \hfill
-  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/uuh.pdf}%
-  \hfill
-  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/juelich.pdf}%
-  \hfill
-  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/trimf.jpg}%
-  \hfill
-  \includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/DESY_Logo}%
-  \hspace{1.5em}
-}
-\vspace{1em}
+	\makebox[\paperwidth]{
+		\hspace{1.5em}
+		\begin{tikzpicture}
+			\node[anchor=south west] at (0,0) (img) {\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/helmholtzai.pdf}};
+			\node[anchor=south west] at (0,.8) {\small \color{helmholtzblue} \textbf{The DeGeSim Project}};
+		\end{tikzpicture}
+		\hfill
+		\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/uuh.pdf}%
+		\hfill
+		\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/juelich.pdf}%
+		\hfill
+		\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/trimf.jpg}%
+		\hfill
+		\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/DESY_Logo}%
+		\hspace{1.5em}
+	}
+	\vspace{1em}
 }
 
 \defbeamertemplate*{sidebar right}{DESY}
 {%
-% DESY style requires the logo to be in line with the footer. Set it
-% there to avoid overlapping
+	% DESY style requires the logo to be in line with the footer. Set it
+	% there to avoid overlapping
 }
 
 \defbeamertemplate*{sidebar canvas left}{DESYTitle}
@@ -169,22 +169,22 @@
 % Frame title: DESY
 \defbeamertemplate*{frametitle}{DESY}%
 {%
-  \ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
-  \@tempdima=\textwidth%
-  \advance\@tempdima by\beamer@leftmargin%
-  \advance\@tempdima by\beamer@rightmargin%
-  \begin{beamercolorbox}[sep=0.55cm,wd=\the\@tempdima]{frametitle}
-    \if@tempswa\else\csname beamer@fte\endcsname\fi%
-    \strut{\usebeamerfont{frametitle}\insertframetitle}\strut\par%
-    {%
-      \ifx\insertframe\@empty%
-      \else%
-      {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
-      \fi
-    }%
-    \vskip-3ex%
-    \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
-  \end{beamercolorbox}%
+	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+	\@tempdima=\textwidth%
+	\advance\@tempdima by\beamer@leftmargin%
+	\advance\@tempdima by\beamer@rightmargin%
+	\begin{beamercolorbox}[sep=0.55cm,wd=\the\@tempdima]{frametitle}
+		\if@tempswa\else\csname beamer@fte\endcsname\fi%
+		\strut{\usebeamerfont{frametitle}\insertframetitle}\strut\par%
+		{%
+			\ifx\insertframe\@empty%
+				\else%
+				{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+			\fi
+		}%
+		\vskip-3ex%
+		\if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+	\end{beamercolorbox}%
 }
 
 
@@ -193,40 +193,40 @@
 
 % Title slide
 \def\maketitle{%
-\setbeamertemplate{background canvas}[DESYTitle]
-% \setbeamertemplate{sidebar canvas left}[DESYTitle]
-\setbeamertemplate{logos}[DESYTitle]
-\setbeamertemplate{footline}{}
-\setbeamertemplate{footline}[DESYTitle]
-\begin{frame}[t]
-\vskip-\headheight%
-\vbox{}%
-\titlepage%
-\vfill%
-\end{frame}
-% reset to default
-\setbeamertemplate{footline}[DESY]
-\setbeamertemplate{sidebar right}[DESY]
-\setbeamertemplate{sidebar left}[DESY]
-\setbeamertemplate{sidebar canvas left}[DESY]
-\setbeamertemplate{background canvas}[DESY]
+	\setbeamertemplate{background canvas}[DESYTitle]
+	% \setbeamertemplate{sidebar canvas left}[DESYTitle]
+	\setbeamertemplate{logos}[DESYTitle]
+	\setbeamertemplate{footline}{}
+	\setbeamertemplate{footline}[DESYTitle]
+	\begin{frame}[t]
+		\vskip-\headheight%
+		\vbox{}%
+		\titlepage%
+		\vfill%
+	\end{frame}
+	% reset to default
+	\setbeamertemplate{footline}[DESY]
+	\setbeamertemplate{sidebar right}[DESY]
+	\setbeamertemplate{sidebar left}[DESY]
+	\setbeamertemplate{sidebar canvas left}[DESY]
+	\setbeamertemplate{background canvas}[DESY]
 }
 
 % Part slide
 \def\makepart{%
-\setbeamertemplate{background canvas}[DESYTitle]
-\setbeamertemplate{sidebar canvas left}[DESYTitle]
-\setbeamertemplate{sidebar right}[DESYTitle]
-\setbeamertemplate{footline}{}
-\begin{frame}[t]
-\vskip-\headheight%
-\vbox{}%
-\partpage%
-\end{frame}
-\setbeamertemplate{footline}[DESY]
-\setbeamertemplate{sidebar right}[DESY]
-\setbeamertemplate{sidebar canvas left}[DESY]
-\setbeamertemplate{background canvas}[DESY]
+	\setbeamertemplate{background canvas}[DESYTitle]
+	\setbeamertemplate{sidebar canvas left}[DESYTitle]
+	\setbeamertemplate{sidebar right}[DESYTitle]
+	\setbeamertemplate{footline}{}
+	\begin{frame}[t]
+		\vskip-\headheight%
+		\vbox{}%
+		\partpage%
+	\end{frame}
+	\setbeamertemplate{footline}[DESY]
+	\setbeamertemplate{sidebar right}[DESY]
+	\setbeamertemplate{sidebar canvas left}[DESY]
+	\setbeamertemplate{background canvas}[DESY]
 }
 
 \mode
