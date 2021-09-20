@@ -55,7 +55,7 @@
 		% \\$~~$
 		\vspace{3ex}
 		\break
-		{\usebeamerfont{author}\usebeamercolor[fg]{normal text}\insertdate}%
+		{\usebeamerfont{author}\usebeamercolor[fg]{normal text}FSP - CMS workshop, \insertdate}%
 	\end{beamercolorbox}%
 	\ifdef{\COLLABORATION}{
 		\begin{tikzpicture}[overlay, remember picture]
@@ -63,6 +63,7 @@
 			\node[anchor=base] (b) at (pic cs:bottomancor) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
 			\draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,gray]
 			(a.north -| {pic cs:rightancor}) -- (b.south -| {pic cs:rightancor}) node [pos=0.5, anchor=west, align=left, color=black, xshift=1em] {\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION};
+			\node[anchor=north west,xshift=4cm] at (a.north -| {pic cs:rightancor}) {\includegraphics[keepaspectratio,width=2cm,height=2cm]{img/logos/cms.png}};
 			%  text width=2.8cm,
 		\end{tikzpicture}
 	}{}
@@ -73,16 +74,19 @@
 		\hspace{1.5em}
 		\begin{tikzpicture}
 			\node[anchor=south west] at (0,0) (img) {\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/helmholtzai.pdf}};
-			\node[anchor=south west] at (0,.8) {\small \color{helmholtzblue} \textbf{The DeGeSim Project}};
+			\node[anchor=south west] at (0,1.24) {\fontsize{9pt}{11pt}\selectfont \color{helmholtzblue} \textbf{The DeGeSim Project}};
+			\node[anchor=south west,text width=3.5cm] at (0,.8) {\fontsize{6pt}{7pt}\selectfont \color{helmholtzblue} MS, SB, K.\nobreakspace Borras, W.\nobreakspace Fedorko, J.\nobreakspace Jitsev, J.\nobreakspace Katzy and DK};
 		\end{tikzpicture}
+		% \hspace{.3em}
+		\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/uuh.pdf}%
 		\hfill
-		\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/uuh.pdf}%
+		\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/rwth.pdf}%
 		\hfill
-		\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/juelich.pdf}%
+		\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/juelich.pdf}%
 		\hfill
-		\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/logos/trimf.jpg}%
+		\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/trimf.jpg}%
 		\hfill
-		\includegraphics[keepaspectratio,width=2.5cm,height=1.3cm]{img/DESY_Logo}%
+		\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/DESY_Logo}%
 		\hspace{1.5em}
 	}
 	\vspace{1em}
