@@ -1,15 +1,12 @@
 \ProvidesPackage{mofonthep}
 %%%% New set costum fonts
-\usepackage{amsmath,amssymb,amstext,amsthm,bm}
-\usepackage{hepparticles}
-\usepackage{heppennames2}
-% consistent SI units
-\usepackage{siunitx}
-\DeclareSIUnit[] \pbinv{\per \pico \barn}
-\DeclareSIUnit[] \fbinv{\per \femto \barn}
 
 %set the fonts
 %the order must be amsmath>hepparticles>unicode-math>fontspec
+\usepackage{amsmath,amssymb,amstext,amsthm,bm}
+\usepackage{hepparticles}
+\usepackage{heppennames2}
+
 \usepackage[
     math-style=ISO,
     bold-style=ISO,
@@ -18,12 +15,12 @@
 \setmathfont{Libertinus Math}
 \setmathrm{Libertinus Serif}
 
+\usepackage{fontspec}
 \DeclareOption{beamer}{%
-\setmainfont[Ligatures=TeX]{Liberation Sans}
-\setsansfont[Ligatures=TeX]{Liberation Sans}
+    \setmainfont[Ligatures=TeX]{Liberation Sans}
+    \setsansfont[Ligatures=TeX]{Liberation Sans}
 }
 \DeclareOption{nobeamer}{%
-    \usepackage{fontspec}
     \setmainfont[RawFeature=+kern;+liga;+calt]{Libertinus Serif}
     \setsansfont{Libertinus Sans}
 }
@@ -33,6 +30,11 @@
 \usepackage{polyglossia}
 \setdefaultlanguage{english}
 
-%include shortcuts
 \usepackage{ptdr-definitions} % cms definitions for \eg ...
 \usepackage{hepshortcuts}     % hep shortcuts
+
+%xspace command for automatic spacing of shortcuts
+\usepackage{xspace}
+\xspaceaddexceptions{''}
+\xspaceaddexceptions{“}
+\xspaceaddexceptions{«}
