@@ -3,38 +3,86 @@
 
 %set the fonts
 %the order must be amsmath>hepparticles>unicode-math>fontspec
-\usepackage{amsmath,amssymb,amstext,amsthm,bm}
-\usepackage{hepparticles}
-\usepackage{heppennames2}
+\RequirePackage{amsmath,amssymb,amstext,amsthm,bm}
+\RequirePackage[italic]{hepparticles}
 
-\usepackage[
+%%%%% Fix hepparticles #1
+%%%%% https://tex.stackexchange.com/questions/616301/no-output-by-hepparticles
+\RequirePackage{xpatch}
+\makeatletter
+\xpatchcmd\@HepConStyle
+ {\edef\@upcode{\updefault}}
+ {\ifdefined\shapedefault\edef\@upcode{\shapedefault}\else\edef\@upcode{\updefault}\fi}
+ {}{}
+\makeatother
+%%%%% Fix hepparticles #2
+%%%%% https://tex.stackexchange.com/questions/384400/missing-uppercase-greek-symbols-in-lualatex-memoir-titles
+\SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{bx}{n}
+%%%%%
+
+\RequirePackage{heppennames2}
+
+\RequirePackage[
     math-style=ISO,
     bold-style=ISO,
-    nabla=upright
+    % nabla=upright
 ]{unicode-math}
 \setmathfont{Libertinus Math}
 \setmathrm{Libertinus Serif}
 
-\usepackage{fontspec}
+\RequirePackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+
+\setmainfont[RawFeature=+kern;+liga;+calt]{Libertinus Serif}
+\setsansfont{Libertinus Sans}
+
 \DeclareOption{beamer}{%
-    \setmainfont[Ligatures=TeX]{Liberation Sans}
-    \setsansfont[Ligatures=TeX]{Liberation Sans}
-}
-\DeclareOption{nobeamer}{%
-    \setmainfont[RawFeature=+kern;+liga;+calt]{Libertinus Serif}
-    \setsansfont{Libertinus Sans}
+    \setmainfont{Liberation Sans}
+    \setsansfont{Liberation Sans}
 }
 \ProcessOptions\relax
 
+%%TEST
 
-\usepackage{polyglossia}
+% \RequirePackage{amsmath,amssymb,amstext,amsthm,bm}
+% \RequirePackage{hepparticles}
+% %%%%% Fix hepparticles #1
+% %%%%% https://tex.stackexchange.com/questions/616301/no-output-by-hepparticles
+% \RequirePackage{xpatch}
+% \makeatletter
+% \xpatchcmd\@HepConStyle
+%  {\edef\@upcode{\updefault}}
+%  {\ifdefined\shapedefault\edef\@upcode{\shapedefault}\else\edef\@upcode{\updefault}\fi}
+%  {}{}
+% \makeatother
+% %%%%% Fix hepparticles #2
+% %%%%% https://tex.stackexchange.com/questions/384400/missing-uppercase-greek-symbols-in-lualatex-memoir-titles
+% \SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{bx}{n}
+% %%%%%
+% \usepackage[%bold-style=ISO
+% ]{unicode-math}
+% \usepackage[italian]{babel}
+% \usepackage{microtype}
+
+% \defaultfontfeatures{ Scale = MatchLowercase }
+% \setmainfont{Libertinus Serif}[ Scale = 1.0, Ligatures = Common ]
+% \setsansfont{Libertinus Sans}
+% \setmonofont{Libertinus Mono}
+% \setmathfont{XITS Math}
+% % \setmathfont{Libertinus Math}
+% % \setmathfont[version=bold]{Libertinus Math}
+
+
+
+\RequirePackage{polyglossia}
 \setdefaultlanguage{english}
 
-\usepackage{ptdr-definitions} % cms definitions for \eg ...
-\usepackage{hepshortcuts}     % hep shortcuts
+\RequirePackage{ptdr-definitions} % cms definitions for \eg ...
+\RequirePackage{hepshortcuts}     % hep shortcuts
+% \RequirePackage{thesisshortcuts}     % hep shortcuts
 
 %xspace command for automatic spacing of shortcuts
-\usepackage{xspace}
+\RequirePackage{xspace}
 \xspaceaddexceptions{''}
 \xspaceaddexceptions{“}
 \xspaceaddexceptions{«}
