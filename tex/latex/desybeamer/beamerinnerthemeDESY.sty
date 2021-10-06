@@ -55,7 +55,7 @@
 		% \\$~~$
 		\vspace{3ex}
 		\break
-		{\usebeamerfont{author}\usebeamercolor[fg]{normal text}FSP - CMS workshop, \insertdate}%
+		{\usebeamerfont{author}\usebeamercolor[fg]{normal text}\ifdef{\FORUM}{\FORUM,\xspace}{}\insertdate}%
 	\end{beamercolorbox}%
 	\ifdef{\COLLABORATION}{
 		\begin{tikzpicture}[overlay, remember picture]
