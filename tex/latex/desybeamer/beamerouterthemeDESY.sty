@@ -55,14 +55,23 @@
 				\hspace*{0.5em}|\hspace*{0.5em}%
 				\usebeamercolor[fg]{title in head/foot}%
 				\inserttitle%
+				% \usebeamercolor[fg]{author in head/foot}%
+				\ifdef{\COLLABORATION}{
+					\hspace*{0.5em}|\hspace*{0.5em}%
+					\COLLABORATION%
+				}{
+					\hspace*{0.5em}|\hspace*{0.5em}%
+					\insertshortauthor%
+				}
+				\ifdef{\WORKSHOP}{
+					\hspace*{0.5em}|\hspace*{0.5em}%
+					\WORKSHOP%
+				}{}
 				\hspace*{0.5em}|\hspace*{0.5em}%
-				\usebeamercolor[fg]{author in head/foot}%
-				\insertshortauthor%
-				\hspace*{0.5em}|\hspace*{0.5em}%
-				\usebeamercolor[fg]{date in head/foot}%
+				% \usebeamercolor[fg]{date in head/foot}%
 				\insertdate
 				\hfill{}
-				\usebeamercolor[fg]{page in head/foot}%
+				% \usebeamercolor[fg]{page in head/foot}%
 				\textbf{\insertframenumber{}/\insertmainframenumber}%
 				\hspace*{.5cm}%
 			}%

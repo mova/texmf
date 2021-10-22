@@ -56,7 +56,7 @@
 		% \\$~~$
 		\vspace{3ex}
 		\break
-		{\usebeamerfont{author}\usebeamercolor[fg]{normal text}\insertdate}%
+		{\usebeamerfont{author}\usebeamercolor[fg]{normal text}\ifdef{\WORKSHOP}{\WORKSHOP,\xspace}{}\insertdate}%
 	\end{beamercolorbox}%
 	\ifdef{\COLLABORATION}{
 		\begin{tikzpicture}[overlay, remember picture]
