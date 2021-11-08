@@ -53,7 +53,6 @@
 		\tikzmark{topancor}
 		{\usebeamerfont{author}\usebeamercolor[fg]{author}\hspace{-.7ex}\insertauthor}
 		\tikzmark{bottomancor}
-		% \\$~~$
 		\vspace{3ex}
 		\break
 		{\usebeamerfont{author}\usebeamercolor[fg]{normal text}\ifdef{\WORKSHOP}{\WORKSHOP,\xspace}{}\insertdate}%
@@ -62,31 +61,54 @@
 		\begin{tikzpicture}[overlay, remember picture]
 			\node[anchor=base] (a) at (pic cs:topancor) {\vphantom{h}}; % push the mark to the top of the line (ie including ascenders)
 			\node[anchor=base] (b) at (pic cs:bottomancor) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
-			\draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,gray]
-			(a.north -| {pic cs:rightancor}) -- (b.south -| {pic cs:rightancor}) node [pos=0.5, anchor=west, align=left, color=black, xshift=1em] {\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION};
+			\iftoggle{colbracket}{
+				\draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,gray]
+				(a.north -| {pic cs:rightancor}) -- (b.south -| {pic cs:rightancor}) node [pos=0.5, anchor=west, align=left, color=black, xshift=.5em] {\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION};
+			}{}
 			%  text width=2.8cm,
 		\end{tikzpicture}
 	}{}
+	\begin{beamercolorbox}[center,wd=.2\textheight]{cmslogo}
+		\includegraphics[width=.3\textheight,height=.3\textheight, keepaspectratio]{img/logos/cms.png}
+	\end{beamercolorbox}
 }
 
 \defbeamertemplate*{footline}{DESYTitle}{
 	\makebox[\paperwidth]{
 		\hspace{1.5em}
-		\begin{tikzpicture}
-			\node[anchor=south west] at (0,0) (img) {\includegraphics[keepaspectratio,width=2.2cm,height=1.3cm]{img/logos/helmholtzai.pdf}};
-			\node[anchor=south west] at (0,1.24) {\fontsize{8pt}{10pt}\selectfont \color{helmholtzblue} \textbf{The DeGeSim Project}};
-			\node[anchor=south west,text width=3cm] at (0,.8) {\fontsize{5pt}{6pt}\selectfont \color{helmholtzblue} MS, SB, K.\nobreakspace Borras, W.\nobreakspace Fedorko, J.\nobreakspace Jitsev, J.\nobreakspace Katzy and DK};
-		\end{tikzpicture}
+		\iftoggle{logodegesim}{
+			\begin{tikzpicture}
+				\node[anchor=south west] at (0,0) (img) {\includegraphics[keepaspectratio,width=2.2cm,height=1.3cm]{img/logos/helmholtzai.pdf}};
+				\node[anchor=south west] at (0,1.24) {\fontsize{8pt}{10pt}\selectfont \color{helmholtzblue} \textbf{The DeGeSim Project}};
+				\node[anchor=south west,text width=3cm] at (0,.8) {\fontsize{5pt}{6pt}\selectfont \color{helmholtzblue} MS, SB, K.\nobreakspace Borras, W.\nobreakspace Fedorko, J.\nobreakspace Jitsev, J.\nobreakspace Katzy and DK};
+			\end{tikzpicture}
+		}
+
 		% \hspace{.3em}
-		\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/uuh.pdf}%
-		\hfill
-		\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/rwth.pdf}%
-		\hfill
-		\includegraphics[keepaspectratio,width=2.7cm,height=1.3cm]{img/logos/jsc.png}%
-		\hfill
-		\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/trimf.jpg}%
-		\hfill
-		\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/DESY_Logo}%
+		\iftoggle{logouh}{
+			\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/uuh.pdf}%
+			\hfill
+		}{}
+		
+		\iftoggle{logorwth}{
+			\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/rwth.pdf}%
+			\hfill
+		}{}
+
+		\iftoggle{logojsc}{
+			\includegraphics[keepaspectratio,width=2.7cm,height=1.3cm]{img/logos/jsc.png}%
+			\hfill
+		}{}
+		
+		\iftoggle{logorwth}{
+			\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/trimf.jpg}%
+			\hfill
+		}{}
+
+		\iftoggle{logodesy}{
+			\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/DESY_Logo}%
+		}{}
+
 		\hspace{1.5em}
 	}
 	\vspace{1em}

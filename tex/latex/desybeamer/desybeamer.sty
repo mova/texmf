@@ -208,7 +208,43 @@ breaklinks
 \RequirePackage{commands}
 \RequirePackage{thesisshortcuts}
 
+\usepackage{dsfont}
+
+\graphicspath{{./}{./plots/}{/home/mscham/phd/talks/graphicspool/}{/home/mscham/.texmf/tex/latex/desybeamer/}}
+
+% \usepackage{algorithm}
+% \usepackage[noend]{algorithmic}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{/home/mscham/phd/talks/litpool/litcoll.bib}
+
+
 % pdfpc plugin
 % https://github.com/cebe/pdfpc-latex-notes
 % \RequirePackage[duration=30,starttime=13:00,lastminutes=5]{pdfpcnotes}
 % \pnote{The list on the previous slide wasn't finished, but first we have something else to say.}
+
+% Booleans to toggle
+\newtoggle{colbracket}
+\toggletrue{colbracket}
+
+\newtoggle{logocms}
+\toggletrue{logocms}
+
+\newtoggle{logodegesim}
+\toggletrue{logodegesim}
+
+\newtoggle{logouh}
+\toggletrue{logouh}
+
+\newtoggle{logorwth}
+\toggletrue{logorwth}
+
+\newtoggle{logojsc}
+\toggletrue{logojsc}
+
+\newtoggle{logotrimf}
+\toggletrue{logotrimf}
+
+\newtoggle{logodesy}
+\toggletrue{logodesy}
