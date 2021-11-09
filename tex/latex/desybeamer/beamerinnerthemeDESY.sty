@@ -34,14 +34,16 @@
 	\vskip-20pt%
 	% Do NOT add the DESY dot: it is not round in Liberation Sans
 	\begin{beamercolorbox}[sep=0.53cm,wd=\the\@tempdima]{title}
-		\usebeamerfont{title}\inserttitle\par%
+		\usebeamerfont{title}\inserttitle%\par%
 	\end{beamercolorbox}%
 
 	\ifdef{\SUBTITLE}{
 	\begin{beamercolorbox}[sep=0.55cm,left,wd=\the\@tempdima]{subtitle}
-		{\usebeamerfont{subtitle}\insertsubtitle\par}%
+		%{
+			\usebeamerfont{subtitle}\insertsubtitle\par
+		%}%
 	\end{beamercolorbox}
-	}{}
+	}{\vspace{20pt}}
 
 	% \begin{beamercolorbox}[sep=0.55cm,wd=\the\@tempdima,left]{author}
 	% Set the box width to only 50% of the text width. This avoids
@@ -49,7 +51,7 @@
 	% explicit unindentation.
 	\vspace{-.7cm}
 	\hspace{0.6\textwidth}\tikzmark{rightancor}\break
-	\begin{beamercolorbox}[sep=0.55cm,wd=0.6\textwidth,left]{author}
+	\begin{beamercolorbox}[sep=0.55cm,wd=0.55\textwidth,left]{author}
 		\tikzmark{topancor}
 		{\usebeamerfont{author}\usebeamercolor[fg]{author}\hspace{-.7ex}\insertauthor}
 		\tikzmark{bottomancor}
@@ -57,20 +59,20 @@
 		\break
 		{\usebeamerfont{author}\usebeamercolor[fg]{normal text}\ifdef{\WORKSHOP}{\WORKSHOP,\xspace}{}\insertdate}%
 	\end{beamercolorbox}%
-	\ifdef{\COLLABORATION}{
-		\begin{tikzpicture}[overlay, remember picture]
-			\node[anchor=base] (a) at (pic cs:topancor) {\vphantom{h}}; % push the mark to the top of the line (ie including ascenders)
-			\node[anchor=base] (b) at (pic cs:bottomancor) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
-			\iftoggle{colbracket}{
-				\draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,gray]
+	\begin{tikzpicture}[overlay, remember picture]
+		\node[anchor=base] (a) at (pic cs:topancor) {\vphantom{h}}; % push the mark to the top of the line (ie including ascenders)
+		\node[anchor=base] (b) at (pic cs:bottomancor) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
+		\iftoggle{colbracket}{
+			\draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,gray]
 				(a.north -| {pic cs:rightancor}) -- (b.south -| {pic cs:rightancor}) node [pos=0.5, anchor=west, align=left, color=black, xshift=.5em] {\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION};
-			}{}
-			%  text width=2.8cm,
-		\end{tikzpicture}
-	}{}
-	\begin{beamercolorbox}[center,wd=.2\textheight]{cmslogo}
-		\includegraphics[width=.3\textheight,height=.3\textheight, keepaspectratio]{img/logos/cms.png}
-	\end{beamercolorbox}
+		}{}
+		\iftoggle{logocms}{
+			\node[anchor=north west] at (a.north -| {pic cs:rightancor})
+			%  {l};
+			{\includegraphics[width=.35\textheight,height=.35\textheight, keepaspectratio]{img/logos/cms.png}};
+		}{}
+		%  text width=2.8cm,
+	\end{tikzpicture}
 }
 
 \defbeamertemplate*{footline}{DESYTitle}{
@@ -100,7 +102,7 @@
 			\hfill
 		}{}
 		
-		\iftoggle{logorwth}{
+		\iftoggle{logotrimf}{
 			\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/trimf.jpg}%
 			\hfill
 		}{}
