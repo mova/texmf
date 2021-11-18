@@ -225,22 +225,19 @@ breaklinks
 % \RequirePackage[duration=30,starttime=13:00,lastminutes=5]{pdfpcnotes}
 % \pnote{The list on the previous slide wasn't finished, but first we have something else to say.}
 
-% Booleans to toggle
-\newtoggle{colbracket}
+
+\newtoggle{colbracket} % Booleans to toggle
 
 \newtoggle{logocms}
-
 \newtoggle{logodegesim}
-
 \newtoggle{logouh}
-
 \newtoggle{logorwth}
-
 \newtoggle{logojsc}
-
 \newtoggle{logotrimf}
-
 \newtoggle{logodesy}
+
+\newtoggle{forcollab}% print for the X collaboration in the title slide
+
 
 % Default True
 \toggletrue{logodegesim}
@@ -248,8 +245,10 @@ breaklinks
 \toggletrue{logojsc}
 \toggletrue{logodesy}
 
+
 % Default False
 \togglefalse{colbracket}
 \togglefalse{logocms}
 \togglefalse{logotrimf}
 \togglefalse{logouh}
+\togglefalse{forcollab} 
