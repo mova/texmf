@@ -4,35 +4,37 @@
 
 \mode<presentation>
 
+
+\setbeamertemplate{navigation symbols}{}
 % No navigation symbols in handout or trans mode:
-\only<handout| trans>{\setbeamertemplate{navigation symbols}{}}
+% \only<handout| trans>{\setbeamertemplate{navigation symbols}{}}
 
-% reduced navigation symbol set
-\defbeamertemplate*{navigation symbols}{DESY}{
-	\hbox{%
-		\hbox{\insertframenavigationsymbol}
-		\hbox{\insertsubsectionnavigationsymbol}
-		\hbox{\insertsectionnavigationsymbol}
-	}%
-}
-\defbeamertemplate*{navigation symbols}{plain}{}
+% % reduced navigation symbol set
+% \defbeamertemplate*{navigation symbols}{DESY}{
+% 	\hbox{%
+% 		\hbox{\insertframenavigationsymbol}
+% 		\hbox{\insertsubsectionnavigationsymbol}
+% 		\hbox{\insertsectionnavigationsymbol}
+% 	}%
+% }
+% \defbeamertemplate*{navigation symbols}{plain}{}
 
-% DESY Banner Helmholtz
-\defbeamertemplate*{title banner}{}{\translate{DESYOrganization}}
+% % DESY Banner Helmholtz
+% \defbeamertemplate*{title banner}{}{\translate{DESYOrganization}}
 
-% Slide counter
-\defbeamertemplate*{slide counter}{shownone}[1][\translate{DESYSlideName}]{}
-\defbeamertemplate*{slide counter}{showall}[1][\translate{DESYSlideName}]{
-	{\usebeamercolor[fg]{date in head/foot}%
-			#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
-		}%
-}
-\defbeamertemplate*{slide counter}{default}[1][\translate{DESYSlideName}]{
-	{\usebeamercolor[fg]{date in head/foot}%
-			% #1~\insertframenumber/\insertmainframenumber%
-			#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
-		}%
-}
+% % Slide counter
+% \defbeamertemplate*{slide counter}{shownone}[1][\translate{DESYSlideName}]{}
+% \defbeamertemplate*{slide counter}{showall}[1][\translate{DESYSlideName}]{
+% 	{\usebeamercolor[fg]{date in head/foot}%
+% 			#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
+% 		}%
+% }
+% \defbeamertemplate*{slide counter}{default}[1][\translate{DESYSlideName}]{
+% 	{\usebeamercolor[fg]{date in head/foot}%
+% 			% #1~\insertframenumber/\insertmainframenumber%
+% 			#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
+% 		}%
+% }
 
 
 % Headline and footline
@@ -68,10 +70,10 @@
 					\WORKSHOP%
 				}{}
 				\hspace*{0.3em}|\hspace*{0.5em}%
-				% \usebeamercolor[fg]{date in head/foot}%
+				\usebeamercolor[fg]{date in head/foot}%
 				\insertdate
 				\hfill{}
-				% \usebeamercolor[fg]{page in head/foot}%
+				\usebeamercolor[fg]{page in head/foot}%
 				\textbf{\insertframenumber{}/\insertmainframenumber}%
 				\hspace*{.5cm}%
 			}%
@@ -84,19 +86,19 @@
 }
 
 
-% Clear Background
-\defbeamertemplate*{background}{DESY}{}
-\defbeamertemplate*{background canvas}{DESY}{}
+% % Clear Background
+% \defbeamertemplate*{background}{DESY}{}
+% \defbeamertemplate*{background canvas}{DESY}{}
 
 
-% Sidebar
-\defbeamertemplate*{sidebar left}{DESY}{}
+% % Sidebar
+% \defbeamertemplate*{sidebar left}{DESY}{}
 
-% DESY style requires the logo to be in line with the footer. Set it
-% there to avoid overlapping
-\defbeamertemplate*{sidebar right}{DESY}{}
-\defbeamertemplate*{sidebar canvas left}{DESY}{}
-\defbeamertemplate*{sidebar canvas right}{DESY}{}
+% % DESY style requires the logo to be in line with the footer. Set it
+% % there to avoid overlapping
+% \defbeamertemplate*{sidebar right}{DESY}{}
+% \defbeamertemplate*{sidebar canvas left}{DESY}{}
+% \defbeamertemplate*{sidebar canvas right}{DESY}{}
 
 % Frame title: DESY
 \defbeamertemplate*{frametitle}{DESY}{
