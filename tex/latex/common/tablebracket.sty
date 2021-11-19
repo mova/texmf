@@ -30,18 +30,18 @@
 
 
 \NewDocumentCommand{\InsertRightBrace}{%
-    O{} % #1 = draw options
-    O{\HorizontalOffset,\VerticalOffset} % #2 = optional brace shift options
-    m   % #3 = top tikzmark
-    m   % #4 = bottom tikzmark
-    m   % #5 = right tikzmark
-    m   % #6 = node text
+	O{} % #1 = draw options
+	O{\HorizontalOffset,\VerticalOffset} % #2 = optional brace shift options
+	m   % #3 = top tikzmark
+	m   % #4 = bottom tikzmark
+	m   % #5 = right tikzmark
+	m   % #6 = node text
 }{%
-    \begin{tikzpicture}[overlay, remember picture]
+	\begin{tikzpicture}[overlay, remember picture]
 		\node[anchor=base] (a) at (pic cs:#3) {\vphantom{h}}; % push the mark to the top of the line (ie including ascenders)
 		\node[anchor=base] (b) at (pic cs:#4) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
-        \draw [decoration={calligraphic brace,amplitude=\BraceAmplitude},decorate,ultra thick]
-            (a.north -| {pic cs:#5}) -- (b.south -| {pic cs:#5}) node [pos=0.5, anchor=west, align=left, color=black, xshift=\BraceAmplitude] {#6};
+		\draw [decoration={calligraphic brace,amplitude=\BraceAmplitude},decorate,ultra thick]
+		(a.north -| {pic cs:#5}) -- (b.south -| {pic cs:#5}) node [pos=0.5, anchor=west, align=left, color=black, xshift=\BraceAmplitude] {#6};
 		%  text width=2.8cm,
 	\end{tikzpicture}
 }%

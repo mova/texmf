@@ -4,17 +4,17 @@
 
 \newcommand{\imgframe}[1]{%
 	{ % all template changes are local to this group.
-    \setbeamertemplate{navigation symbols}{}
-    \begin{frame}<article:0>[plain]
-        \begin{tikzpicture}[remember picture,overlay]
-            \node[at=(current page.center)] {
-                \includegraphics[keepaspectratio,
-                                 width=\paperwidth,
-                                 height=\paperheight]{#1}
-            };
-        \end{tikzpicture}
-     \end{frame}
-	}
+			\setbeamertemplate{navigation symbols}{}
+			\begin{frame}<article:0>[plain]
+				\begin{tikzpicture}[remember picture,overlay]
+					\node[at=(current page.center)] {
+						\includegraphics[keepaspectratio,
+							width=\paperwidth,
+							height=\paperheight]{#1}
+					};
+				\end{tikzpicture}
+			\end{frame}
+		}
 }
 
 % \newcommand{\imgframe}[3]{%
@@ -36,4 +36,4 @@
 % 			\end{tikzpicture}
 % 		\end{frame}
 % 	}}
-	
+

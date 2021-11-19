@@ -11,9 +11,9 @@
 \RequirePackage{xpatch}
 \makeatletter
 \xpatchcmd\@HepConStyle
- {\edef\@upcode{\updefault}}
- {\ifdefined\shapedefault\edef\@upcode{\shapedefault}\else\edef\@upcode{\updefault}\fi}
- {}{}
+{\edef\@upcode{\updefault}}
+{\ifdefined\shapedefault\edef\@upcode{\shapedefault}\else\edef\@upcode{\updefault}\fi}
+{}{}
 \makeatother
 %%%%% Fix hepparticles #2
 %%%%% https://tex.stackexchange.com/questions/384400/missing-uppercase-greek-symbols-in-lualatex-memoir-titles
@@ -23,9 +23,9 @@
 \RequirePackage{heppennames2}
 
 \RequirePackage[
-    math-style=ISO,
-    bold-style=ISO,
-    % nabla=upright
+	math-style=ISO,
+	bold-style=ISO,
+	% nabla=upright
 ]{unicode-math}
 \setmathfont{Libertinus Math}
 \setmathrm{Libertinus Serif}
@@ -37,8 +37,8 @@
 \setsansfont{Libertinus Sans}
 
 \DeclareOption{beamer}{%
-    \setmainfont{Liberation Sans}
-    \setsansfont{Liberation Sans}
+	\setmainfont{Liberation Sans}
+	\setsansfont{Liberation Sans}
 }
 \ProcessOptions\relax
 
