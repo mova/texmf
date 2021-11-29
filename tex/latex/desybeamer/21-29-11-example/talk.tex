@@ -1,0 +1,214 @@
+\ifdefined\handout
+	\documentclass[lualatex,handout,aspectratio=1610]{beamer}
+\else
+	\documentclass[lualatex,beamer,aspectratio=1610,dvipsnames]{beamer}
+\fi
+
+
+\usetheme{DESY}
+
+
+\newcommand{\TITLE}{Title}
+\newcommand{\SUBTITLE}{Subtitle}
+\newcommand{\AUTHOR}{
+	Author 1, Author 2, Author 3,\break
+	Author 4, \textbf{Presenter}, Author 6}
+\newcommand{\WORKSHOP}{Workshop}
+\newcommand{\COLLABORATION}{Collaboration}
+\newcommand{\DATE}{\today}
+
+\usepackage[sectionslide]{desybeamer}
+
+\toggletrue{colbracket}
+
+% pdfpc plugin
+% https://github.com/cebe/pdfpc-latex-notes
+\usepackage[duration=10:00,starttime=00:00,lastminutes=1]{pdfpcnotes}
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{frame}{Vision}
+	\begin{center}
+		\large Save CPU time by using a \textbf{Neural Network} to simulate the \textbf{HGCAL}.
+	\end{center}
+	\vfill
+	% \begin{center}
+	% \includegraphics[keepaspectratio,width=\textwidth,height=.95\textheight]{ganslide-rot.pdf}
+	% \end{center}
+	\pause
+	\begin{center}
+		\small Use Graph Neural Networks (`GNNs') to deal with sparsity and irregular geometry
+	\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Design Decisions}
+	\begin{itemize}[<+->]
+		\item Stay as close as possible to the detector geometry \imp Node ≡ Cell
+		\item Q1: When is the neighborhood between the cells constructed?\\
+		      \begin{itemize}
+			      \item `Post simulation' step: construct the neighborhood for each event (in CMSSW)
+			            \begin{itemize}
+				            \item simulation always matches geometry
+			            \end{itemize}
+			            \pause\vs
+			      \item Preprocessing step: read neighborhood from lookup table
+			            \begin{itemize}
+				            \item faster $⇐$
+			            \end{itemize}
+		      \end{itemize}
+		\item Q2: How do we continue after the simulation?% In CMSSW \vs In a python environment?
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Simulation and Machine Learning Frameworks}
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\textbf{Integration}: Simulate in CMSSW, use the integrated ML software stack.
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\textbf{Decoupling}: Simulate in CMSSW, continue with standard ML software stack.
+		\end{column}
+	\end{columns}
+	\pause
+	\begin{columns}
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+				\item Directly integrated in the production process\pause
+			\end{itemize}
+		\end{column}
+		\begin{column}{.5\textwidth}
+			\begin{itemize}
+				\item Lean development environment\pause
+				\item Faster development cycle\pause
+				\item Easier onboarding\pause
+				\item Access to HPC clusters w/o CMS software available\pause
+				\item Cutting edge software versions \pause
+			\end{itemize}
+			\imp Preferred solution for this case
+		\end{column}
+	\end{columns}
+
+	\vfill
+	\pause
+	\begin{center}
+		The integrated ML tool chain in CMSSW is also widely used in CMS!
+	\end{center}
+\end{frame}
+
+
+% \section{Data Loader}
+\begin{frame}{Loading the dataset}
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{enumerate}
+				\item Read simulated hits from ROOT file\tikzmark{topdl}
+				      \begin{itemize}
+					      \item Most tools cannot handle data of variable dimension
+					      \item \texttt{uproot} → \texttt{awkward} arrays
+				      \end{itemize}
+				      \pause
+				\item Convert simulated hits to graphs
+				      \begin{itemize}
+					      \item Select the active cells from the extracted geometry
+					      \item Extract the cell properties, construct the neighborhood information\\
+					            CPU intensive \imp parallel processing
+				      \end{itemize}
+				      \pause
+				\item Batch the graphs (\texttt{torch\_geometric}~\cite{torch_geometric.batch})\tikzmark{bottomdl}
+				      \pause
+				\item Move to GPU
+			\end{enumerate}
+		\end{column}
+		\begin{column}{.33\textwidth}
+			\tikzmark{rightdl}
+		\end{column}
+	\end{columns}
+	\pause
+	\InsertRightBrace{topdl}{bottomdl}{rightdl}{Custom dataloader\\ based on\\ \small\texttt{torch.multiprocessing}~\cite{torch.multiprocessing}}
+	\pnote{
+		1. number of events x number of hits\\
+		⇒ variable number of dimensions\\
+		⇒ tools fail\\
+		scihep software stack\\
+		2. 3.7M Cells/ Endcap to much \\
+		⇒ prune cells w/o deposits\\
+		3. gpu utilisation ⇒ batching ⇒ torch_geometric \\
+		4.dont reprocess for each epoch
+	}
+\end{frame}
+
+
+\begin{frame}{Loading the dataset}
+	\label{dataloder}
+	\begin{columns}
+		\begin{column}{.65\textwidth}
+			\begin{enumerate}
+				\item Read Simulated hits from ROOT file\tikzmark{topdl}
+				      \begin{itemize}
+					      \item Most tools cannot handle data of variable dimension
+					      \item \texttt{uproot} → \texttt{akward} arrays
+				      \end{itemize}
+				\item Convert simulated hits to graphs
+				      \begin{itemize}
+					      \item Select the active cells from the extracted geometry
+					      \item Extract the cell properties, construct the neighborhood information\\
+					            CPU intensive \imp parallel processing
+				      \end{itemize}
+				\item Batch the graphs (\texttt{torch\_geometric}~\cite{torch_geometric.batch})\tikzmark{bottomdl}
+				\item (De)Serialize files (from) to disc (\texttt{torch.save})
+				\item Move to GPU
+			\end{enumerate}
+		\end{column}
+		\begin{column}{.33\textwidth}
+			\tikzmark{rightdl}
+		\end{column}
+	\end{columns}
+	\InsertRightBrace{topdl}{bottomdl}{rightdl}{Custom dataloader\\ based on\\ \small\texttt{torch.multiprocessing}~\cite{torch.multiprocessing}}
+\end{frame}
+
+
+\thankyou
+
+\begin{frame}[allowframebreaks]{Bibliography}
+	\printbibliography
+\end{frame}
+
+\mode<beamer>
+
+\appendix
+
+\section{Backup}
+
+
+\begin{frame}[t,fragile]{Control data flow with processes pools and queues}
+	\begin{python}
+		pseq = Sequence(
+		ProcessStep(read_chunk, 2),
+		PoolStep(simhits_to_graph,nworkers=20),
+		RepackStep(batch_size),
+		ProcessStep(torch_geometric.data.Batch().from_data_list),
+		Queue(prefetch_batches)
+		)
+		...
+		pseq.queue_iterable(epoch_chunks)
+		...
+		for batch in pseq(filelist):
+		prediction = model(batch)
+		...
+	\end{python}
+	\begin{itemize}
+		\item fast
+		\item limits memory usage
+		\item option to save to disk
+	\end{itemize}
+\end{frame}
+
+\end{document}
