@@ -2,47 +2,44 @@
 % version 1.0
 % based upon beamer theme for Juelich by i.kabadshow@fz-juelich.de
 
-\mode<presentation>
 
-
-\setbeamertemplate{navigation symbols}{}
-% No navigation symbols in handout or trans mode:
-% \only<handout| trans>{\setbeamertemplate{navigation symbols}{}}
-
-% % reduced navigation symbol set
-% \defbeamertemplate*{navigation symbols}{DESY}{
-% 	\hbox{%
-% 		\hbox{\insertframenavigationsymbol}
-% 		\hbox{\insertsubsectionnavigationsymbol}
-% 		\hbox{\insertsectionnavigationsymbol}
-% 	}%
-% }
-% \defbeamertemplate*{navigation symbols}{plain}{}
-
-% % DESY Banner Helmholtz
-% \defbeamertemplate*{title banner}{}{\translate{DESYOrganization}}
-
-% % Slide counter
-% \defbeamertemplate*{slide counter}{shownone}[1][\translate{DESYSlideName}]{}
-% \defbeamertemplate*{slide counter}{showall}[1][\translate{DESYSlideName}]{
-% 	{\usebeamercolor[fg]{date in head/foot}%
-% 			#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
-% 		}%
-% }
-% \defbeamertemplate*{slide counter}{default}[1][\translate{DESYSlideName}]{
-% 	{\usebeamercolor[fg]{date in head/foot}%
-% 			% #1~\insertframenumber/\insertmainframenumber%
-% 			#1~\insertframenumber\ \vrule width0.3pt height5pt\ \insertmainframenumber%
-% 		}%
-% }
-
+% % Clear Background
+\defbeamertemplate*{background}{DESY}{}
+\defbeamertemplate*{background canvas}{DESY}{}
+% Nav Symbols
+\defbeamertemplate*{navigation symbols}{DESY}{}
 
 % Headline and footline
-\defbeamertemplate*{headline}{DESY}{
-	%\begin{beamercolorbox}[leftskip=7.5mm,ht=10mm,dp=0mm]{header}
-	%\end{beamercolorbox}
-}
+\defbeamertemplate*{headline}{DESY}{}
 
+% % Sidebar
+\defbeamertemplate*{sidebar left}{DESY}{}
+
+% % DESY style requires the logo to be in line with the footer. Set it
+% % there to avoid overlapping
+\defbeamertemplate*{sidebar right}{DESY}{}
+\defbeamertemplate*{sidebar canvas left}{DESY}{}
+\defbeamertemplate*{sidebar canvas right}{DESY}{}
+
+% Frame title: DESY
+\defbeamertemplate*{frametitle}{DESY}{
+	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+	\@tempdima=\textwidth%
+	\advance\@tempdima by\beamer@leftmargin%
+	\advance\@tempdima by\beamer@rightmargin%
+	\begin{beamercolorbox}[sep=0.55cm,wd=\the\@tempdima]{frametitle}
+		\if@tempswa\else\csname beamer@fte\endcsname\fi%
+		\strut{\usebeamerfont{frametitle}\insertframetitle}\strut\par%
+		{%
+			\ifx\insertframe\@empty%
+				\else%
+				{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+			\fi
+		}%
+		\vskip-3ex%
+		\if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+	\end{beamercolorbox}%
+}
 
 \defbeamertemplate*{footline}{DESY}{
 	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
@@ -85,51 +82,146 @@
 	\end{beamercolorbox}%
 }
 
-
-% % Clear Background
-% \defbeamertemplate*{background}{DESY}{}
-% \defbeamertemplate*{background canvas}{DESY}{}
-
-
-% % Sidebar
-% \defbeamertemplate*{sidebar left}{DESY}{}
-
-% % DESY style requires the logo to be in line with the footer. Set it
-% % there to avoid overlapping
-% \defbeamertemplate*{sidebar right}{DESY}{}
-% \defbeamertemplate*{sidebar canvas left}{DESY}{}
-% \defbeamertemplate*{sidebar canvas right}{DESY}{}
-
-% Frame title: DESY
-\defbeamertemplate*{frametitle}{DESY}{
-	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+% Part page: DESY
+\defbeamertemplate*{part page}{DESY}{
 	\@tempdima=\textwidth%
 	\advance\@tempdima by\beamer@leftmargin%
 	\advance\@tempdima by\beamer@rightmargin%
-	\begin{beamercolorbox}[sep=0.55cm,wd=\the\@tempdima]{frametitle}
-		\if@tempswa\else\csname beamer@fte\endcsname\fi%
-		\strut{\usebeamerfont{frametitle}\insertframetitle}\strut\par%
-		{%
-			\ifx\insertframe\@empty%
-				\else%
-				{\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
-			\fi
-		}%
-		\vskip-3ex%
-		\if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+	\vskip-20pt%
+	% For parts: use chapter style, ie. do not repeat the talk title
+	% % Do NOT add the DESY dot: it is not round in Liberation Sans
+	% \begin{beamercolorbox}[sep=0.55cm,wd=\the\@tempdima]{title}
+	%     \usebeamerfont{title}\inserttitle\par%
+	% \end{beamercolorbox}%
+	\ifx\insertsubtitle\@empty%
+	\else%
+	\begin{beamercolorbox}[sep=0.54cm,left,wd=\the\@tempdima]{subtitle}
+		{\usebeamerfont{title}\usebeamercolor[fg]{title}\insertpart\par}%
+	\end{beamercolorbox}
+	\vskip1cm
+}
+
+%%% Title page: DESY
+% Clear Background
+\defbeamertemplate*{background}{DESYTitle}{}
+\defbeamertemplate*{background canvas}{DESYTitle}{}
+\defbeamertemplate*{sidebar canvas left}{DESYTitle}{}
+
+\defbeamertemplate*{title page}{DESY}{
+	\@tempdima=\textwidth%
+	\advance\@tempdima by\beamer@leftmargin%
+	\advance\@tempdima by\beamer@rightmargin%
+	\vskip-20pt%
+	% Do NOT add the DESY dot: it is not round in Liberation Sans
+	\begin{beamercolorbox}[sep=0.53cm,wd=\the\@tempdima]{title}
+		\usebeamerfont{title}\inserttitle%\par%
 	\end{beamercolorbox}%
+
+	\ifdef{\SUBTITLE}{
+		\begin{beamercolorbox}[sep=0.55cm,left,wd=\the\@tempdima]{subtitle}
+			%{
+			\usebeamerfont{subtitle}\insertsubtitle\par
+			%}%
+		\end{beamercolorbox}
+	}{\vspace{20pt}}
+
+	% \begin{beamercolorbox}[sep=0.55cm,wd=\the\@tempdima,left]{author}
+	% Set the box width to only 50% of the text width. This avoids
+	% covering the logo for very long headlines, but requires
+	% explicit unindentation.
+	\vspace{-.7cm}
+	\hspace{0.6\textwidth}\tikzmark{rightancor}\break
+	\begin{beamercolorbox}[sep=0.55cm,wd=0.55\textwidth,left]{author}
+		\tikzmark{topancor}
+		{\usebeamerfont{author}\usebeamercolor[fg]{author}\hspace{-.7ex}\insertauthor\iftoggle{forcollab}{\xspace for the \COLLABORATION \xspace Collaboration}{}}
+		\tikzmark{bottomancor}
+		\vspace{3ex}
+		\break
+		{\usebeamerfont{author}\usebeamercolor[fg]{normal text}\ifdef{\WORKSHOP}{\WORKSHOP,\xspace}{}\insertdate}%
+	\end{beamercolorbox}%
+	\begin{tikzpicture}[overlay, remember picture]
+		\node[anchor=base] (a) at (pic cs:topancor) {\vphantom{h}}; % push the mark to the top of the line (ie including ascenders)
+		\node[anchor=base] (b) at (pic cs:bottomancor) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
+		\iftoggle{colbracket}{
+			\draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,gray]
+			(a.north -| {pic cs:rightancor}) -- (b.south -| {pic cs:rightancor}) node [pos=0.5, anchor=west, align=left, color=black, xshift=.5em] {\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION};
+		}{}
+		\iftoggle{logocms}{
+			\node[anchor=north west] at (a.north -| {pic cs:rightancor})
+			%  {l};
+			{\includegraphics[width=.35\textheight,height=.35\textheight, keepaspectratio]{img/logos/cms.png}};
+		}{}
+		%  text width=2.8cm,
+	\end{tikzpicture}
+}
+
+\defbeamertemplate*{footline}{DESYTitle}{
+	\vspace{-2cm}
+	\makebox[\paperwidth]{
+		\hspace{1.5em}
+		\iftoggle{logodegesim}{
+			\begin{tikzpicture}
+				\node[anchor=south west] at (0,0) (img) {\includegraphics[keepaspectratio,width=2.2cm,height=1.3cm]{img/logos/helmholtzai.pdf}};
+				\iftoggle{logodegesimnames}{
+				\node[anchor=south west] at (0,1.24) {\fontsize{6pt}{6pt}\selectfont \color{helmholtzblue} \textbf{The DeGeSim Project}};
+				\node[anchor=south west,text width=3cm] at (0,.8) {\fontsize{5pt}{6pt}\selectfont \color{helmholtzblue} MS, SB, K.\nobreakspace Borras, W.\nobreakspace Fedorko, J.\nobreakspace Jitsev, J.\nobreakspace Katzy and DK};
+				}{
+				\node[anchor=south west] at (0,.8) {\fontsize{6.5pt}{6.5pt}\selectfont \color{helmholtzblue} \textbf{The DeGeSim Project}};
+				}
+
+			\end{tikzpicture}
+		}
+		\hfill
+		\hfill
+
+		% \hspace{.3em}
+		\iftoggle{logouh}{
+			\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/uuh.pdf}%
+			\hfill
+		}{}
+
+		\iftoggle{logorwth}{
+			\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/rwth.pdf}%
+			\hfill
+		}{}
+
+		\iftoggle{logojsc}{
+			\includegraphics[keepaspectratio,width=2.7cm,height=1.3cm]{img/logos/jsc.png}%
+			\hfill
+		}{}
+
+		\iftoggle{logotrimf}{
+			\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/logos/trimf.jpg}%
+			\hfill
+		}{}
+
+		\iftoggle{logodesy}{
+			\includegraphics[keepaspectratio,width=2cm,height=1.3cm]{img/DESY_Logo}%
+		}{}
+
+		\hspace{1.5em}
+	}
+	\vspace{1em}
 }
 
 
 
-% put the footline in the right place
-\def\beamer@fteright{\vskip0.35cm\advance\leftskip by 1.7cm\advance\rightskip by 1.7cm}
+
+\newcommand{\resetbeamertemplate}{
+	% Set all Parts to the desy style in the beginning
+	\setbeamertemplate{footline}[DESY]
+	\setbeamertemplate{navigation symbols}[DESY]
+	\setbeamertemplate{sidebar right}[DESY]
+	\setbeamertemplate{sidebar left}[DESY]
+	\setbeamertemplate{sidebar canvas left}[DESY]
+	\setbeamertemplate{background canvas}[DESY]
+}
 
 
 % Title slide
 \def\maketitle{%
 	\setbeamertemplate{background canvas}[DESYTitle]
-	% \setbeamertemplate{sidebar canvas left}[DESYTitle]
+	\setbeamertemplate{sidebar canvas left}[DESYTitle]
 	\setbeamertemplate{logos}[DESYTitle]
 	\setbeamertemplate{footline}{}
 	\setbeamertemplate{footline}[DESYTitle]
@@ -140,11 +232,7 @@
 		\vfill%
 	\end{frame}
 	% reset to default
-	\setbeamertemplate{footline}[DESY]
-	\setbeamertemplate{sidebar right}[DESY]
-	\setbeamertemplate{sidebar left}[DESY]
-	\setbeamertemplate{sidebar canvas left}[DESY]
-	\setbeamertemplate{background canvas}[DESY]
+	\resetbeamertemplate
 }
 
 % Part slide
@@ -158,10 +246,7 @@
 		\vbox{}%
 		\partpage%
 	\end{frame}
-	\setbeamertemplate{footline}[DESY]
-	\setbeamertemplate{sidebar right}[DESY]
-	\setbeamertemplate{sidebar canvas left}[DESY]
-	\setbeamertemplate{background canvas}[DESY]
+	\resetbeamertemplate
 }
 
 
@@ -190,6 +275,7 @@
 	\end{frame}
 }
 
+\resetbeamertemplate
 
 \mode
 <all>
