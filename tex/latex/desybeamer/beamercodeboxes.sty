@@ -1,0 +1,114 @@
+\ProvidesPackage{beamercodeboxes}
+
+\RequirePackage{fancyvrb}
+\RequirePackage{xpatch}
+\RequirePackage{xifthen}
+\RequirePackage[%outputdir=build
+]{minted}
+
+\makeatletter
+% new fancyvrb options "above space" and "below vspace"
+\define@key{FV}{above vspace}[\topsep]{\def\FancyVerbAboveVspace{#1}}
+\define@key{FV}{below vspace}[\topsep]{\def\FancyVerbBelowVspace{#1}}
+
+% redefine existing option "vspace"
+\define@key{FV}{vspace}[\topsep]{%
+  \def\FancyVerbAboveVspace{#1}\def\FancyVerbBelowVspace{#1}}
+
+% init
+\fvset{vspace}
+
+% patch fancyvrb internals
+\xpatchcmd\FV@ListVSpace
+  {\@topsepadd=\FancyVerbVspace}
+  {\@topsepadd=\FancyVerbAboveVspace}
+  {}{\PatchFailed}
+\xpatchcmd\FV@EndList
+  {\@endparenv}
+  {\@topsepadd\dimexpr\@topsepadd-\FancyVerbAboveVspace
+                                 +\FancyVerbBelowVspace\relax
+   \@endparenv}
+  {}{\PatchFailed}
+\minted@def@optfv{vspace}
+\minted@def@optfv{above vspace}
+\minted@def@optfv{below vspace}
+\makeatother
+
+\RequirePackage{tikz}
+\RequirePackage{multicolrule}
+
+
+\RequirePackage{xkeyval}
+
+\makeatletter
+
+%colors
+\definecolor{codebgdark}{rgb}{.1, .1, .1}
+\definecolor{codebglight}{rgb}{.95, .95, .95}
+
+\define@key{CB}{language}[python]{\def\CB@language{#1}}
+\define@choicekey{CB}{style}[\val\nr]{%
+  monokai,native,vim,fruity,manni,rrt,autumn,perldoc,bw,borland,emacs,colorful,murphy,pastie,vs,friendly,trac,tango}[monokai]{%
+  \def\CB@style{#1}
+  \ifthenelse{\nr<4}{\def\codeboxblackbgbool{}}{}
+}
+
+\define@key{CB}{columns}[1]{\def\CB@columns{#1}}
+\define@key{CB}{title}[]{
+  \def\CB@title{#1}
+  \ifthenelse{\isempty{#1}}{}{\def\codeboxtitlebool{}}
+}
+
+\presetkeys{CB}{language,style,columns,title}{}
+
+% External Interface
+\newcommand*{\inputcodebox}[2][]{
+  \setkeys{CB}{#1}
+  \begin{codeboxInternalColorBox}[#1]
+  \inputminted[tabsize=2,breaklines,fontsize=\scriptsize,python3=true, below vspace=0pt,above vspace=0pt,style=\CB@style]{\CB@language}{#2}
+  \end{codeboxInternalColorBox}
+}
+
+
+\newenvironment{codebox}[1][]{%
+\VerbatimEnvironment % Needed: minted doc: 6 (\newminted)
+\setkeys{CB}{#1}
+\begin{codeboxInternalColorBox}[#1]
+  \begin{minted}[tabsize=2,breaklines,fontsize=\scriptsize,python3=true,vspace=0pt,style=\CB@style]{\CB@language}%
+}{%
+  \end{minted}%
+\end{codeboxInternalColorBox}%
+\break
+}
+
+% Internal Enviroment
+
+
+\newenvironment{codeboxInternalColorBox}[1][]{%
+  %Load the keys
+  \setkeys{CB}{#1}
+  \ifdefined\codeboxblackbgbool
+  \setbeamercolor{codebox}{fg=white,bg=codebgdark}
+  \def\ciclecolor{white}
+  \else
+  \setbeamercolor{codebox}{fg=black,bg=codebglight}
+  \def\ciclecolor{black}
+  \fi
+  \ifdefined\CB@cannary\CB@cannary\fi
+  \setlength{\parskip}{0pt}\noindent
+  \begin{beamercolorbox}[rounded=true]{codebox}%
+    \ifdefined\codeboxtitlebool
+      \small \CB@title \vspace{4pt} \hrule
+    \else
+      \ifthenelse{\CB@columns<2}{}{\vspace{-2.4ex}}
+    \fi    
+    \setlength\multicolsep{0pt} % no multicol top margin%
+    \SetMCRule{line-style=solid-circles,color=\ciclecolor,width=2pt}%
+    \ifthenelse{\CB@columns>1}{\begin{multicols}{\CB@columns}}{}
+      
+}{%
+    \ifthenelse{\CB@columns>1}{\end{multicols}}{}
+  \end{beamercolorbox}%
+}
+
+\makeatother
