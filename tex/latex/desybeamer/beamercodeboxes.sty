@@ -54,18 +54,19 @@
 }
 
 \define@key{CB}{columns}[1]{\def\CB@columns{#1}}
+\define@key{CB}{fontsize}[\scriptsize]{\def\CB@fontsize{#1}}
 \define@key{CB}{title}[]{
   \def\CB@title{#1}
   \ifthenelse{\isempty{#1}}{}{\def\codeboxtitlebool{}}
 }
 
-\presetkeys{CB}{language,style,columns,title}{}
+\presetkeys{CB}{language,style,columns,title,fontsize}{}
 
 % External Interface
 \newcommand*{\inputcodebox}[2][]{
   \setkeys{CB}{#1}
   \begin{codeboxInternalColorBox}[#1]
-  \inputminted[tabsize=2,breaklines,fontsize=\scriptsize,python3=true, below vspace=0pt,above vspace=0pt,style=\CB@style]{\CB@language}{#2}
+  \inputminted[tabsize=2,breaklines,fontsize=\CB@fontsize,python3=true, below vspace=0pt,above vspace=0pt,style=\CB@style]{\CB@language}{#2}
   \end{codeboxInternalColorBox}
 }
 
@@ -74,7 +75,7 @@
 \VerbatimEnvironment % Needed: minted doc: 6 (\newminted)
 \setkeys{CB}{#1}
 \begin{codeboxInternalColorBox}[#1]
-  \begin{minted}[tabsize=2,breaklines,fontsize=\scriptsize,python3=true,vspace=0pt,style=\CB@style]{\CB@language}%
+  \begin{minted}[tabsize=2,breaklines,fontsize=\CB@fontsize,python3=true,vspace=0pt,style=\CB@style]{\CB@language}%
 }{%
   \end{minted}%
 \end{codeboxInternalColorBox}%
