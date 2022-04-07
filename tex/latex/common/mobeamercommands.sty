@@ -1,6 +1,6 @@
 \ProvidesPackage{mobeamercommands}[Custom Commands to safe time]
 % Custom commands for just including images
-\newcommand{\icg}[1]{\includegraphics[keepaspectratio,width=.9\textwidth,height=.8\textheight]{#1}}
+\newcommand{\icg}[1]{\begin{center}\includegraphics[keepaspectratio,width=.9\textwidth,height=.8\textheight]{#1}\end{center}}
 
 \newcommand{\imgframe}[1]{%
 	{ % all template changes are local to this group.
@@ -16,6 +16,7 @@
 			\end{frame}
 		}
 }
+
 
 % \newcommand{\imgframe}[3]{%
 % { % all template changes are local to this group.
