@@ -31,14 +31,31 @@
 \setmathrm{Libertinus Serif}
 
 \RequirePackage{fontspec}
-\defaultfontfeatures{Ligatures=TeX}
 
-\setmainfont[RawFeature=+kern;+liga;+calt]{Libertinus Serif}
+
+
+
+\defaultfontfeatures{Ligatures=TeX}
+\directlua{luaotfload.add_fallback(
+	"fallbacks",
+	{
+		"Noto Color Emoji:mode=harf;",
+	 	"Noto Serif CJK SC:style=Regular;"
+	})
+}
+
+\setmainfont[RawFeature=+kern;+liga;+calt]{Libertinus Serif}[
+	RawFeature={fallback=fallbacks}
+]
 \setsansfont{Libertinus Sans}
 
 \DeclareOption{beamer}{%
-	\setmainfont{Liberation Sans}
-	\setsansfont{Liberation Sans}
+	\setmainfont{Liberation Sans}[
+		RawFeature={fallback=fallbacks}
+	]
+	\setsansfont{Liberation Sans}[
+		RawFeature={fallback=fallbacks}
+	]
 }
 \ProcessOptions\relax
 
