@@ -47,10 +47,9 @@
 \definecolor{codebglight}{rgb}{.95, .95, .95}
 
 \define@key{CB}{language}[python]{\def\CB@language{#1}}
-\define@choicekey{CB}{style}[\val\nr]{%
-  monokai,native,vim,fruity,manni,rrt,autumn,perldoc,bw,borland,emacs,colorful,murphy,pastie,vs,friendly,trac,tango}[monokai]{%
-  \def\CB@style{#1}
-  \ifthenelse{\nr<4}{\def\codeboxblackbgbool{}}{}
+\define@choicekey{CB}{style}[\val\nr]{monokai,native,vim,fruity,manni,rrt,autumn,perldoc,bw,borland,emacs,colorful,murphy,pastie,vs,friendly,trac,tango}[monokai]{%
+\def\CB@style{#1}
+\ifthenelse{\nr<4}{\def\codeboxblackbgbool{}}{}
 }
 
 \define@key{CB}{columns}[1]{\def\CB@columns{#1}}
@@ -66,7 +65,7 @@
 \newcommand*{\inputcodebox}[2][]{
   \setkeys{CB}{#1}
   \begin{codeboxInternalColorBox}[#1]
-  \inputminted[tabsize=2,breaklines,fontsize=\CB@fontsize,python3=true, below vspace=0pt,above vspace=0pt,style=\CB@style]{\CB@language}{#2}
+  \inputminted[tabsize=2,breaklines,fontsize=\CB@fontsize,python3=true, below vspace=0pt,above vspace=0pt,style=monokai,]{\CB@language}{#2}
   \end{codeboxInternalColorBox}
 }
 
@@ -75,7 +74,7 @@
 \VerbatimEnvironment % Needed: minted doc: 6 (\newminted)
 \setkeys{CB}{#1}
 \begin{codeboxInternalColorBox}[#1]
-  \begin{minted}[tabsize=2,breaklines,fontsize=\CB@fontsize,python3=true,vspace=0pt,style=\CB@style]{\CB@language}%
+  \begin{minted}[tabsize=2,breaklines,fontsize=\CB@fontsize,python3=true,vspace=0pt,style=monokai,]{\CB@language}%
 }{%
   \end{minted}%
 \end{codeboxInternalColorBox}%
