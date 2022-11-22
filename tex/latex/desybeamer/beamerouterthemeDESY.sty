@@ -145,12 +145,20 @@
 		\node[anchor=base] (b) at (pic cs:bottomancor) {\vphantom{g}}; % push the mark to the bottom of the line (ie including descenders)
 		\iftoggle{colbracket}{
 			\draw [decoration={brace,amplitude=0.5em},decorate,ultra thick,gray]
-			(a.north -| {pic cs:rightancor}) -- (b.south -| {pic cs:rightancor}) node [pos=0.5, anchor=west, align=left, color=black, xshift=.5em] {\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION};
+			(a.north -| {pic cs:rightancor}) -- (b.south -| {pic cs:rightancor}) node [pos=0.5, anchor=west, align=left, color=black, xshift=.5em] (colnode) {\Large\usebeamercolor[fg]{framesubtitle} \COLLABORATION} ;
 		}{}
 		\iftoggle{logocms}{
-			\node[anchor=north west] at (a.north -| {pic cs:rightancor})
+			\ifboolexpr{ togl{colbracket} and togl{logocms} }{
+				% colbracket + cms logo
+				\node[anchor=west,xshift=.1\textwidth] at (colnode)
+				{\includegraphics[width=.2\textheight,height=.2\textheight, keepaspectratio]{img/logos/cms.png}};
+				}{
+				% only cms logo
+				\node[anchor=north west] at (a.north -| {pic cs:rightancor})
+				{\includegraphics[width=.3\textheight,height=.3\textheight, keepaspectratio]{img/logos/cms.png}};
+			}
 			%  {l};
-			{\includegraphics[width=.3\textheight,height=.3\textheight, keepaspectratio]{img/logos/cms.png}};
+			
 		}{}
 		%  text width=2.8cm,
 	\end{tikzpicture}
