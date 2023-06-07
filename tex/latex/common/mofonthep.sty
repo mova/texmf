@@ -33,9 +33,8 @@
 \RequirePackage{fontspec}
 
 
-
-
 \defaultfontfeatures{Ligatures=TeX}
+% Add Emojis via fallback fonts
 \directlua{luaotfload.add_fallback(
 	"fallbacks",
 	{
@@ -49,6 +48,7 @@
 ]
 \setsansfont{Libertinus Sans}
 
+% Use Sans font for beamer
 \DeclareOption{beamer}{%
 	\setmainfont{Libertinus Sans}[
 		RawFeature={fallback=fallbacks}
@@ -93,10 +93,6 @@
 
 \RequirePackage{polyglossia}
 \setdefaultlanguage{english}
-
-\RequirePackage{ptdr-definitions} % cms definitions for \eg ...
-\RequirePackage{hepshortcuts}     % hep shortcuts
-\RequirePackage{thesisshortcuts}     % hep shortcuts
 
 %xspace command for automatic spacing of shortcuts
 \RequirePackage{xspace}
