@@ -39,6 +39,7 @@
 
 
 \RequirePackage{xkeyval}
+% \RequirePackage{xkvview}
 
 \makeatletter
 
@@ -61,6 +62,7 @@
 
 \presetkeys{CB}{language,style,columns,title,fontsize}{}
 
+
 % External Interface
 \newcommand*{\inputcodebox}[2][]{
   \setkeys{CB}{#1}
@@ -73,10 +75,31 @@
 \newenvironment{codebox}[1][]{%
 \VerbatimEnvironment % Needed: minted doc: 6 (\newminted)
 \setkeys{CB}{#1}
-\begin{codeboxInternalColorBox}[#1]
-  \begin{minted}[tabsize=2,breaklines,fontsize=\CB@fontsize,python3=true,vspace=0pt,style=monokai,]{\CB@language}%
+
+% \begin{codeboxInternalColorBox}[#1]\begin{minted}[\mintedoptions]{\CB@language}%
+
+
+% Needed: minted doc: 6 (\newminted)
+% \newcommand\mintedoptions{}
+
+
+% \expandafter\def\csname defmintedpython\endcsname{\newminted[myminted]{python}{\mintedoptions}}
+% \expandafter\def\csname defmintedtext\endcsname{\newminted[myminted]{text}{\mintedoptions}}
+% \expandafter\def\csname defmintedcpp\endcsname{\newminted[myminted]{cpp}{\mintedoptions}}
+
+% \newcommand\genmintedlanguageenv[1]{\csname defminted#1\endcsname}
+
+% \genmintedlanguageenv{\CB@language}
+% set to python until 
+% https://github.com/gpoore/minted/issues/354
+% is fixed
+% \newminted[myminted]{\CB@language}{tabsize=2,breaklines,fontsize=\CB@fontsize,python3=true,vspace=0pt,style=monokai,}
+\newminted[myminted]{python}{tabsize=2,breaklines,fontsize=\CB@fontsize,python3=true,vspace=0pt,style=monokai,}
+
+\begin{codeboxInternalColorBox}[#1]%
+  \begin{myminted}%
 }{%
-  \end{minted}%
+  \end{myminted}%
 \end{codeboxInternalColorBox}%
 \break
 }
