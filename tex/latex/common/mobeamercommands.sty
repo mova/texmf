@@ -8,17 +8,21 @@
 
 
 
+
+
 \newcommand{\imgframe}[1]{%
 	{ % all template changes are local to this group.
 			\setbeamertemplate{navigation symbols}{}
 			\begin{frame}<article:0>[plain]
-				\begin{tikzpicture}[remember picture,overlay]
-					\node[at=(current page.center)] {
-						\includegraphics[keepaspectratio,
-							width=\textwidth,
-							height=\textheight]{#1}
-					};
-				\end{tikzpicture}
+				% \begin{tikzpicture}[remember picture,overlay]
+				% 	\node[at=(current page.center)] {
+				% 		\includegraphics[keepaspectratio,
+				% 			width=\textwidth,
+				% 			height=\textheight]{#1}
+				% 	};
+				% \end{tikzpicture}
+				\centering
+				\includegraphics[keepaspectratio,width=0.95\textwidth,height=0.95\textheight]{#1}
 			\end{frame}
 		}
 }
