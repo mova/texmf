@@ -1,22 +1,22 @@
 \ProvidesPackage{thesisshortcuts}[Shortcuts for my thesis]
 
 %%% own stuff
-\renewcommand{\Htt}{\texorpdfstring{\ensuremath{\PH\to\Pgt\Pgt}}{H→ττ}\xspace}
-\renewcommand{\Zmm}{\ensuremath{\cPZ\to\Pgm\Pgm}\xspace}
+\newcommand{\Htt}{\texorpdfstring{\ensuremath{\PH\to\Pgt\Pgt}}{H→ττ}\xspace}
+\newcommand{\Zmm}{\ensuremath{\cPZ\to\Pgm\Pgm}\xspace}
 
 \newcommand{\xxH}{\mbox{\ensuremath{\Px\Px\to\PH}}\xspace}
 \newcommand{\VV}{\mbox{\ensuremath{\PV\PV}}\xspace}
 
-\newcommand{\TTT}{\mbox{\ensuremath{\ttbar\;(\Pgt\Pgt)}}\xspace}
-\newcommand{\VVT}{\mbox{\ensuremath{\PV\PV\;(\Pgt\Pgt)}}\xspace}
+\newcommand{\TTT}{\mbox{\ensuremath{\ttbar(\Pgt\Pgt)}}\xspace}
+\newcommand{\VVT}{\mbox{\ensuremath{\PV\PV(\Pgt\Pgt)}}\xspace}
 
-\newcommand{\TTJ}{\mbox{\ensuremath{\ttbar\;\text{(jet)}}}\xspace}
-\newcommand{\VVJ}{\mbox{\ensuremath{\PV\PV\;\text{(jet)}}}\xspace}
-\newcommand{\WJ}{\mbox{\ensuremath{\PW\;\text{(jet)}}}\xspace}
-\newcommand{\ZJ}{\mbox{\ensuremath{\PZ\;\text{(jet)}}}\xspace}
+\newcommand{\TTJ}{\mbox{\ensuremath{\ttbar\text{(jet)}}}\xspace}
+\newcommand{\VVJ}{\mbox{\ensuremath{\PV\PV\text{(jet)}}}\xspace}
+\newcommand{\WJ}{\mbox{\ensuremath{\PW\text{(jet)}}}\xspace}
+\newcommand{\ZJ}{\mbox{\ensuremath{\PZ\text{(jet)}}}\xspace}
 
-\newcommand{\TTL}{\mbox{\ensuremath{\ttbar\;(l\ell)}}\xspace}
-\newcommand{\VVL}{\mbox{\ensuremath{\PV\PV\;(l\ell)}}\xspace}
+\newcommand{\TTL}{\mbox{\ensuremath{\ttbar(l\ell)}}\xspace}
+\newcommand{\VVL}{\mbox{\ensuremath{\PV\PV(l\ell)}}\xspace}
 \newcommand{\EWKZ}{\mbox{\ensuremath{\text{electroweak }\PZ}}\xspace}
 \newcommand{\EMB}{\Pgt-embedding\xspace}
 \newcommand{\QCD}{QCD multi-jet\xspace}
@@ -36,11 +36,6 @@
 \newcommand{\AR}{\ensuremath{\mathrm{AR}}\xspace}
 \newcommand{\SR}{\ensuremath{\mathrm{SR}}\xspace}
 
-\DeclareMathOperator*{\argmax}{argmax}
-\DeclareMathOperator*{\argmin}{argmin}
-\DeclareMathOperator*{\softmax}{softmax}
-\DeclareMathOperator\erf{erf}
-\DeclareMathOperator\sgn{sgn}
 
 %%% STXS bins
 \RequirePackage{dict}
@@ -85,7 +80,7 @@ ME_q2v2:\ensuremath{\text{ME}_{\text{q2v2}}},%
 \DeclareRobustCommand{\PGnell}{{\HepParticle{\PGn}{\ell}{}}\Xspace} % neutrino (for lepton l)
 \newcommand{\ptth}{\ensuremath{{p}_\mathrm{T}^{\Pgth}}\xspace}
 
-\renewcommand{\FF}{\texorpdfstring{\ensuremath{F_\mathrm{F}}}{F\_F}\xspace}
+\newcommand{\FF}{\texorpdfstring{\ensuremath{F_\mathrm{F}}}{F\_F}\xspace}
 \newcommand{\FFb}{\ensuremath{F_{\mathrm{F}}^{b}}\xspace}
 \newcommand{\FFqcd}{\ensuremath{F_{\mathrm{F}}^{\text{QCD}}}\xspace}
 \newcommand{\FFw}{\ensuremath{F_{\mathrm{F}}^{\PW}}\xspace}
@@ -107,25 +102,6 @@ ME_q2v2:\ensuremath{\text{ME}_{\text{q2v2}}},%
 \DeclareRobustCommand{\PHp}{{\HepParticle{h}{}{+}}\Xspace}
 \DeclareRobustCommand{\PHpm}{{\HepParticle{h}{}{\pm}}\Xspace}
 
-% DeeptTreeShort cuts
-\newcommand{\rel}{\ensuremath{\mathrm{rel}}}
-\newcommand{\jet}{\ensuremath{\mathrm{jet}}}
-\newcommand{\consti}{\ensuremath{\mathrm{particle}}}
 
-% \newcommand{\ptrel}{\ensuremath{\pt^\rel}\xspace}
-% \newcommand{\etarel}{\ensuremath{η^\mathrm{rel}}\xspace}
-% \newcommand{\phirel}{\ensuremath{φ^\mathrm{rel}}\xspace}
-
-% \newcommand{\phipart}{\ensuremath{φ^\mathrm{rel}}\xspace}
-
-%  = \frac{\pt^\mathrm{particle}}{\pt^\mathrm{jet}} \qquad
-% ^\mathrm{rel} = η^\mathrm{particle} − η^\mathrm{jet} \qquad
-% ^\mathrm{rel} = φ^\mathrm{particle} − φ^\mathrm{jet}
-
-
-\newcommand{\imp}{\ensuremath{\Rightarrow}\xspace}
-\newcommand{\wom}{\ensuremath{W_1^\mathrm{M}}\xspace}
-\newcommand{\wop}{\ensuremath{W_1^\mathrm{P}}\xspace}
-\newcommand{\woefp}{\ensuremath{W_1^\mathrm{EFP}}\xspace}
 
 
