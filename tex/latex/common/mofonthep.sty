@@ -4,94 +4,68 @@
 %set the fonts
 %the order must be amsmath>hepparticles>unicode-math>fontspec
 \RequirePackage{amsmath,amssymb,amstext,amsthm,bm}
-\RequirePackage[italic]{hepparticles}
+\RequirePackage[italic
+	]{hepparticles}
+
+\RequirePackage{heppennames2}
+
+\RequirePackage{mathtools}
+\RequirePackage[
+	math-style=ISO,
+	bold-style=ISO,
+	nabla=upright
+]{unicode-math}
+
+\RequirePackage{fontspec}
+
+% Add Emojis via fallback fonts
+\directlua{luaotfload.add_fallback(
+	"fallbacks",
+	{
+		% "Libertinus Math Regular:style=Regular;",
+		"Noto Color Emoji:mode=harf;",
+		"Noto Serif CJK SC:style=Regular;"
+	})
+}
+
+\defaultfontfeatures{RawFeature={fallback=fallbacks}}
+
+\setmathfont{Libertinus Math}
+\setmathrm{Libertinus Math}
+
+\setsansfont{Libertinus Sans}
+\setmainfont{Libertinus Serif}
 
 %%%%% Fix hepparticles #1
 %%%%% https://tex.stackexchange.com/questions/616301/no-output-by-hepparticles
 \RequirePackage{xpatch}
 \makeatletter
 \xpatchcmd\@HepConStyle
-{\edef\@upcode{\updefault}}
-{\ifdefined\shapedefault\edef\@upcode{\shapedefault}\else\edef\@upcode{\updefault}\fi}
-{}{}
+ {\edef\@upcode{\updefault}}
+ {\ifdefined\shapedefault\edef\@upcode{\shapedefault}\else\edef\@upcode{\updefault}\fi}
+ {}{}
 \makeatother
 %%%%% Fix hepparticles #2
 %%%%% https://tex.stackexchange.com/questions/384400/missing-uppercase-greek-symbols-in-lualatex-memoir-titles
-\SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{bx}{n}
-%%%%%
+% \SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{bx}{n}
+% \SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{b}{n}
+% \SetMathAlphabet{\mathup}{bold}{TU}{\familydefault}{bx}{n}
+\SetMathAlphabet{\mathup}{bold}{\UnicodeEncodingName}{\familydefault}{b}{n}
+% %%%%%
+% % %%%%% heading math bold
+% % %%%%% https://tex.stackexchange.com/questions/41379/automatically-typeset-math-in-section-headings-in-bold-face
+% % \makeatletter
+% % \g@addto@macro\bfseries{\boldmath}
+% % \makeatother
+% % %%%%%
 
-\RequirePackage{heppennames}
-
-\RequirePackage{mathtools}
-\RequirePackage[
-	math-style=ISO,
-	bold-style=ISO,
-	% nabla=upright
-]{unicode-math}
-\setmathfont{Libertinus Math}
-\setmathrm{Libertinus Serif}
-
-\RequirePackage{fontspec}
-
-
-\defaultfontfeatures{Ligatures=TeX}
-% Add Emojis via fallback fonts
-\directlua{luaotfload.add_fallback(
-	"fallbacks",
-	{
-		"Noto Color Emoji:mode=harf;",
-	 	"Noto Serif CJK SC:style=Regular;"
-	})
-}
-
-\setmainfont[RawFeature=+kern;+liga;+calt]{Libertinus Serif}[
-	RawFeature={fallback=fallbacks}
-]
-\setsansfont{Libertinus Sans}
 
 % Use Sans font for beamer
 \DeclareOption{beamer}{%
-	\setmainfont{Libertinus Sans}[
-		RawFeature={fallback=fallbacks}
-	]
-	\setsansfont{Libertinus Sans}[
-		RawFeature={fallback=fallbacks}
-	]
+	\setmainfont{Libertinus Sans}
 }
 
 \ProcessOptions\relax
-
-%%TEST
-
-% \RequirePackage{amsmath,amssymb,amstext,amsthm,bm}
-% \RequirePackage{hepparticles}
-% %%%%% Fix hepparticles #1
-% %%%%% https://tex.stackexchange.com/questions/616301/no-output-by-hepparticles
-% \RequirePackage{xpatch}
-% \makeatletter
-% \xpatchcmd\@HepConStyle
-%  {\edef\@upcode{\updefault}}
-%  {\ifdefined\shapedefault\edef\@upcode{\shapedefault}\else\edef\@upcode{\updefault}\fi}
-%  {}{}
-% \makeatother
-% %%%%% Fix hepparticles #2
-% %%%%% https://tex.stackexchange.com/questions/384400/missing-uppercase-greek-symbols-in-lualatex-memoir-titles
-% \SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{bx}{n}
-% %%%%%
-% \usepackage[%bold-style=ISO
-% ]{unicode-math}
-% \usepackage[italian]{babel}
-% \usepackage{microtype}
-
-% \defaultfontfeatures{ Scale = MatchLowercase }
-% \setmainfont{Libertinus Serif}[ Scale = 1.0, Ligatures = Common ]
-% \setsansfont{Libertinus Sans}
-% \setmonofont{Libertinus Mono}
-% \setmathfont{XITS Math}
-% % \setmathfont{Libertinus Math}
-% % \setmathfont[version=bold]{Libertinus Math}
-
-
 
 \RequirePackage{polyglossia}
 \setdefaultlanguage{english}
