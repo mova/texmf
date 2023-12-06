@@ -11,6 +11,7 @@
 
 \RequirePackage{mathtools}
 \RequirePackage[
+	% mathrm=sym,mathit=sym,mathsf=sym,mathbf=sym,mathtt=sym,
 	math-style=ISO,
 	bold-style=ISO,
 	nabla=upright
@@ -47,10 +48,10 @@
 \makeatother
 %%%%% Fix hepparticles #2
 %%%%% https://tex.stackexchange.com/questions/384400/missing-uppercase-greek-symbols-in-lualatex-memoir-titles
-% \SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{bx}{n}
+\SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{bx}{n}
 % \SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{b}{n}
 % \SetMathAlphabet{\mathup}{bold}{TU}{\familydefault}{bx}{n}
-\SetMathAlphabet{\mathup}{bold}{\UnicodeEncodingName}{\familydefault}{b}{n}
+% \SetMathAlphabet{\mathup}{bold}{\UnicodeEncodingName}{\familydefault}{b}{n}
 % %%%%%
 % % %%%%% heading math bold
 % % %%%%% https://tex.stackexchange.com/questions/41379/automatically-typeset-math-in-section-headings-in-bold-face
