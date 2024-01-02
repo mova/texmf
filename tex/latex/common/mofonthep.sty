@@ -7,7 +7,7 @@
 \RequirePackage[italic
 	]{hepparticles}
 
-\RequirePackage{heppennames2}
+\RequirePackage{heppennames}
 
 \RequirePackage{mathtools}
 \RequirePackage[
@@ -24,8 +24,12 @@
 	"fallbacks",
 	{
 		% "Libertinus Math Regular:style=Regular;",
-		"Noto Color Emoji:mode=harf;",
-		"Noto Serif CJK SC:style=Regular;"
+		% "Noto Color Emoji:style=Regular;",
+		% "FiraCode Nerd Font:style=Regular;",
+		"NotoColorEmoji.ttf:mode=harf;",
+		% "Fura Code Regular Nerd Font Complete:style=Regular;",
+		% "Symbola:style=Regular;"
+		% "Noto Serif CJK SC:style=Regular;"
 	})
 }
 
@@ -37,28 +41,28 @@
 \setsansfont{Libertinus Sans}
 \setmainfont{Libertinus Serif}
 
-%%%%% Fix hepparticles #1
-%%%%% https://tex.stackexchange.com/questions/616301/no-output-by-hepparticles
-\RequirePackage{xpatch}
-\makeatletter
-\xpatchcmd\@HepConStyle
- {\edef\@upcode{\updefault}}
- {\ifdefined\shapedefault\edef\@upcode{\shapedefault}\else\edef\@upcode{\updefault}\fi}
- {}{}
-\makeatother
-%%%%% Fix hepparticles #2
-%%%%% https://tex.stackexchange.com/questions/384400/missing-uppercase-greek-symbols-in-lualatex-memoir-titles
-\SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{bx}{n}
-% \SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{b}{n}
-% \SetMathAlphabet{\mathup}{bold}{TU}{\familydefault}{bx}{n}
-% \SetMathAlphabet{\mathup}{bold}{\UnicodeEncodingName}{\familydefault}{b}{n}
-% %%%%%
-% % %%%%% heading math bold
-% % %%%%% https://tex.stackexchange.com/questions/41379/automatically-typeset-math-in-section-headings-in-bold-face
-% % \makeatletter
-% % \g@addto@macro\bfseries{\boldmath}
-% % \makeatother
+% %%%%% Fix hepparticles #1
+% %%%%% https://tex.stackexchange.com/questions/616301/no-output-by-hepparticles
+% \RequirePackage{xpatch}
+% \makeatletter
+% \xpatchcmd\@HepConStyle
+%  {\edef\@upcode{\updefault}}
+%  {\ifdefined\shapedefault\edef\@upcode{\shapedefault}\else\edef\@upcode{\updefault}\fi}
+%  {}{}
+% \makeatother
+% %%%%% Fix hepparticles #2
+% %%%%% https://tex.stackexchange.com/questions/384400/missing-uppercase-greek-symbols-in-lualatex-memoir-titles
+% \SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{bx}{n}
+% % \SetMathAlphabet{\mathup}{bold}{OT1}{\familydefault}{b}{n}
+% % \SetMathAlphabet{\mathup}{bold}{TU}{\familydefault}{bx}{n}
+% % \SetMathAlphabet{\mathup}{bold}{\UnicodeEncodingName}{\familydefault}{b}{n}
 % % %%%%%
+% % % %%%%% heading math bold
+% % % %%%%% https://tex.stackexchange.com/questions/41379/automatically-typeset-math-in-section-headings-in-bold-face
+% % % \makeatletter
+% % % \g@addto@macro\bfseries{\boldmath}
+% % % \makeatother
+% % % %%%%%
 
 
 % Use Sans font for beamer
