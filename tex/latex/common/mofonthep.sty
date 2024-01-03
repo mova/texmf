@@ -20,6 +20,8 @@
 \RequirePackage{fontspec}
 
 % Add Emojis via fallback fonts
+% \RequirePackage{luaotfload}
+% \directlua{fonts.names.scan("/home/mscham/.fonts")}
 \directlua{luaotfload.add_fallback(
 	"fallbacks",
 	{
@@ -27,6 +29,9 @@
 		% "Noto Color Emoji:style=Regular;",
 		% "FiraCode Nerd Font:style=Regular;",
 		"NotoColorEmoji.ttf:mode=harf;",
+		% "[/usr/share/fonts/google-noto-emoji/NotoColorEmoji.ttf]:mode=harf;",
+		% "[/home/mscham/.fonts/NotoColorEmoji-Regular.ttf]:mode=harf;",
+		% "[/home/mscham/.fonts/NotoColorEmoji.ttf]:mode=harf;style=Regular;",
 		% "Fura Code Regular Nerd Font Complete:style=Regular;",
 		% "Symbola:style=Regular;"
 		% "Noto Serif CJK SC:style=Regular;"
