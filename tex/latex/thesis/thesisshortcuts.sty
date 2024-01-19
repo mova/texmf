@@ -102,6 +102,21 @@
 % \DeclareRobustCommand{\PHp}{{\HepParticle{h}{}{+}}\Xspace}
 % \DeclareRobustCommand{\PHpm}{{\HepParticle{h}{}{\pm}}\Xspace}
 
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\softmax}{softmax}
+\DeclareMathOperator\erf{erf}
+\DeclareMathOperator\sgn{sgn}
+\DeclareMathOperator{\EX}{\mathbb{E}}
+\DeclareMathOperator{\LO}{\mathbb{E}}
+
+\newcommand{\EXdata}{\EX_{x \sim p_{\text{data}}(x)}}
+\newcommand{\EXgen}{\EX_{z \sim p_z(z)}}
+\newcommand{\DX}{\ensuremath{\mathcal{X}}}
+\newcommand{\pdata}{\ensuremath{p_\text{data}}}
+\newcommand{\pz}{\ensuremath{p_z}}
+\newcommand{\pgen}{\ensuremath{p_\mathrm{gen}}}
+\newcommand{\Dstar}{\ensuremath{D^\star}}
 
 
 
@@ -116,13 +131,91 @@
 \newcommand{\mrel}{\ensuremath{m^{\rel}}\xspace}
 \newcommand{\mreljet}{\ensuremath{{m}^{\rel}_{\mathrm{jet}}}\xspace}
 \newcommand{\ptjet}{\ensuremath{{p}_{\mathrm{T,jet}}}\xspace}
+\newcommand{\phijet}{\ensuremath{\phi_{\mathrm{jet}}}\xspace}
+\newcommand{\etajet}{\ensuremath{\eta_{\mathrm{jet}}}\xspace}
 \newcommand{\ptrel}{\ensuremath{{p}_{\mathrm{T}}^{\rel}}\xspace}
 
 \newcommand{\JN}{\textsc{JetNet}\xspace}
 \newcommand{\JNs}{\textsc{JetNet-30}\xspace}
 \newcommand{\JNl}{\textsc{JetNet-150}\xspace}
 \newcommand{\treegan}{\textsc{tree-GAN}\xspace}
-\newcommand{\dt}{\textsc{DeepTreeGAN}\xspace}
+\newcommand{\dt}{\textsc{DeepTree}\xspace}
 \newcommand{\mdma}{\textsc{MDMA}\xspace}
 \newcommand{\egan}{\textsc{EPiC-GAN}\xspace}
 \newcommand{\mpgan}{\textsc{MP-GAN}\xspace}
+
+\RequirePackage{dict}
+\DefineDictionary{abla}{%
+base:{\texttt{(0)base}},
+both.CE:{\texttt{(1)CE}},
+both.MSE:{\texttt{(2)MSE}},
+both.W:{\texttt{(3)W}},
+both.bs1000:{\texttt{(4)bs1000}},
+both.bs50:{\texttt{(5)bs50}},
+both.ffn.actfirst:{\texttt{(6)ffn.actfirst}},
+both.lrhigh:{\texttt{(7)lrhigh}},
+both.lrlow:{\texttt{(8)lrlow}},
+both.noscale:{\texttt{(9)noscale}},
+both.stepratio3:{\texttt{(10)stepratio3}},
+gen.ac.4:{\texttt{(11)ac.4}},
+gen.ac.allac:{\texttt{(12)ac.allac}},
+gen.ac.convgat:{\texttt{(13)ac.convgat}},
+gen.ac.gated:{\texttt{(14)ac.gated}},
+gen.ac.nh200:{\texttt{(15)ac.nh200}},
+gen.ac.nh50:{\texttt{(16)ac.nh50}},
+gen.ac.no:{\texttt{(17)ac.no}},
+gen.ac.nores:{\texttt{(18)ac.nores}},
+gen.br.eqv:{\texttt{(19)br.eqv}},
+gen.br.gated:{\texttt{(20)br.gated}},
+gen.br.nodimred.nores:{\texttt{(21)br.nodimred.nores}},
+gen.br.nodimred.res:{\texttt{(22)br.nodimred.res}},
+gen.br.noise:{\texttt{(23)br.noise}},
+gen.br.nonorm:{\texttt{(24)br.nonorm}},
+gen.br.nores:{\texttt{(25)br.nores}},
+gen.br.snbn:{\texttt{(26)br.snbn}},
+gen.cgated:{\texttt{(27)cgated}},
+gen.ffn.actfirst:{\texttt{(28)ffn.actfirst}},
+gen.ffn.bias:{\texttt{(29)ffn.bias}},
+gen.ffn.dr1:{\texttt{(30)ffn.dr1}},
+gen.ffn.dr3:{\texttt{(31)ffn.dr3}},
+gen.ffn.gelu:{\texttt{(32)ffn.gelu}},
+gen.ffn.hn200:{\texttt{(33)ffn.hn200}},
+gen.ffn.hn50:{\texttt{(34)ffn.hn50}},
+gen.ffn.nl5:{\texttt{(35)ffn.nl5}},
+gen.ffn.nonorm:{\texttt{(36)ffn.nonorm}},
+gen.ffn.selu:{\texttt{(37)ffn.selu}},
+gen.ffn.snbn:{\texttt{(38)ffn.snbn}},
+gen.nglob0:{\texttt{(39)nglob0}},
+gen.nglob20:{\texttt{(40)nglob20}},
+gen.nocond:{\texttt{(41)nocond}},
+gen.nofml:{\texttt{(42)nofml}},
+gen.topk:{\texttt{(43)topk}},
+gen.tree.inv:{\texttt{(44)tree.inv}},
+gen.tree.lftx:{\texttt{(45)tree.lftx}},
+gen.tree.short:{\texttt{(46)tree.short}},
+crit.bbp.gatplus:{\texttt{(47)bbp.gatplus}},
+crit.bbp.heads32:{\texttt{(48)bbp.heads32}},
+crit.bbp.heads4:{\texttt{(49)bbp.heads4}},
+crit.bbp.sn:{\texttt{(50)bbp.sn}},
+crit.emb.lat20:{\texttt{(51)emb.lat20}},
+crit.emb.lat80:{\texttt{(52)emb.lat80}},
+crit.emb.nonorm:{\texttt{(53)emb.nonorm}},
+crit.emb.sn:{\texttt{(54)emb.sn}},
+crit.emb.snbn:{\texttt{(55)emb.snbn}},
+crit.ffn.actfirst:{\texttt{(56)ffn.actfirst}},
+crit.ffn.bias:{\texttt{(57)ffn.bias}},
+crit.ffn.bn:{\texttt{(58)ffn.bn}},
+crit.ffn.dr.0:{\texttt{(59)ffn.dr.0}},
+crit.ffn.dr.3:{\texttt{(60)ffn.dr.3}},
+crit.ffn.nonorm:{\texttt{(61)ffn.nonorm}},
+crit.ffn.snbn:{\texttt{(62)ffn.snbn}},
+crit.nocond:{\texttt{(63)nocond}},
+crit.scrit.cnu0:{\texttt{(64)scrit.cnu0}},
+crit.scrit.cnu4:{\texttt{(65)scrit.cnu4}},
+crit.scrit.lat20:{\texttt{(66)scrit.lat20}},
+crit.scrit.lat80:{\texttt{(67)scrit.lat80}},
+crit.tree.lftx:{\texttt{(68)tree.lftx}},
+crit.tree.long:{\texttt{(69)tree.long}},
+crit.tree.single:{\texttt{(70)tree.single}},
+crit.tree.wide:{\texttt{(71)tree.wide}},
+}
