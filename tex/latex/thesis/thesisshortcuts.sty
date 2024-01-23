@@ -110,6 +110,13 @@
 \DeclareMathOperator{\EX}{\mathbb{E}}
 \DeclareMathOperator{\LO}{\mathbb{E}}
 
+\usepackage{mathtools} 
+
+\DeclarePairedDelimiter\autobracket{(}{)}
+\newcommand{\br}[1]{\autobracket*{#1}}
+% \DeclarePairedDelimiter\autoabs{\lvert}{\rvert}
+% \newcommand{\abs}[1]{\abs*{#1}}
+
 \newcommand{\EXdata}{\EX_{x \sim p_{\text{data}}(x)}}
 \newcommand{\EXgen}{\EX_{z \sim p_z(z)}}
 \newcommand{\DX}{\ensuremath{\mathcal{X}}}
