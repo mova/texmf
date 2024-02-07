@@ -28,7 +28,7 @@
 		% "Libertinus Math Regular:style=Regular;",
 		% "Noto Color Emoji:style=Regular;",
 		% "FiraCode Nerd Font:style=Regular;",
-		"NotoColorEmoji.ttf:mode=harf;",
+		"Noto Color Emoji:mode=harf;",
 		% "[/usr/share/fonts/google-noto-emoji/NotoColorEmoji.ttf]:mode=harf;",
 		% "[/home/mscham/.fonts/NotoColorEmoji-Regular.ttf]:mode=harf;",
 		% "[/home/mscham/.fonts/NotoColorEmoji.ttf]:mode=harf;style=Regular;",
@@ -38,11 +38,12 @@
 	})
 }
 
+
 \defaultfontfeatures{RawFeature={fallback=fallbacks}}
 
 \setmathfont{Libertinus Math}
 \setmathrm{Libertinus Math}
-
+\setmonofont{Noto Mono} % No Greek glyphs in Libertinus Mono
 \setsansfont{Libertinus Sans}
 \setmainfont{Libertinus Serif}
 
@@ -80,8 +81,13 @@
 \RequirePackage{polyglossia}
 \setdefaultlanguage{english}
 
-%xspace command for automatic spacing of shortcuts
+% xspace command for automatic spacing of shortcuts
 \RequirePackage{xspace}
 \xspaceaddexceptions{''}
 \xspaceaddexceptions{“}
 \xspaceaddexceptions{«}
+\xspaceaddexceptions{,}
+
+% ttfamily with special characters like _
+\newcommand{\dc}{\catcode`\%=12 \codeaux}
+\newcommand\codeaux[1]{\texttt{\detokenize{#1}}\catcode`\%=14}
