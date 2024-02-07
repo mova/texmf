@@ -43,7 +43,7 @@
 
 \setmathfont{Libertinus Math}
 \setmathrm{Libertinus Math}
-\setmonofont{Noto Mono} % No Greek glyphs in Libertinus Mono
+\setmonofont{FiraCode Nerd Font} % No Greek glyphs in Libertinus Mono
 \setsansfont{Libertinus Sans}
 \setmainfont{Libertinus Serif}
 
@@ -87,7 +87,8 @@
 \xspaceaddexceptions{“}
 \xspaceaddexceptions{«}
 \xspaceaddexceptions{,}
+\xspaceaddexceptions{)}
 
 % ttfamily with special characters like _
 \newcommand{\dc}{\catcode`\%=12 \codeaux}
-\newcommand\codeaux[1]{\texttt{\detokenize{#1}}\catcode`\%=14}
+\newcommand\codeaux[1]{{\footnotesize\texttt{\detokenize{#1}}}\xspace\catcode`\%=14}
