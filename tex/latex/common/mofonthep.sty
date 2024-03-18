@@ -43,7 +43,7 @@
 
 \setmathfont{Libertinus Math}
 \setmathrm{Libertinus Math}
-\setmonofont{FiraCode Nerd Font} % No Greek glyphs in Libertinus Mono
+\setmonofont[Scale=0.8]{FiraCode Nerd Font} % No Greek glyphs in Libertinus Mono
 \setsansfont{Libertinus Sans}
 \setmainfont{Libertinus Serif}
 
@@ -91,8 +91,8 @@
 \xspaceaddexceptions{.}
 
 % ttfamily with special characters like _
-\newcommand{\dc}{\catcode`\%=12 \codeaux}
-\newcommand\codeaux[1]{{\footnotesize\texttt{\detokenize{#1}}}\xspace\catcode`\%=14}
+\newcommand{\dc}{\catcode`\%=12\codeaux}
+\newcommand\codeaux[1]{{\texttt{\detokenize{#1}}}\xspace\catcode`\%=14}
 
 % https://tex.stackexchange.com/questions/509205/symbol-for-function-composition-like-a-big-sum
 \makeatletter
