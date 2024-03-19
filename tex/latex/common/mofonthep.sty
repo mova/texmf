@@ -83,16 +83,11 @@
 
 % xspace command for automatic spacing of shortcuts
 \RequirePackage{xspace}
-\xspaceaddexceptions{''}
-\xspaceaddexceptions{“}
-\xspaceaddexceptions{«}
-\xspaceaddexceptions{,}
-\xspaceaddexceptions{)}
-\xspaceaddexceptions{.}
+\xspaceaddexceptions{'“«,).}
 
 % ttfamily with special characters like _
-\newcommand{\dc}{\catcode`\%=12\codeaux}
-\newcommand\codeaux[1]{{\texttt{\detokenize{#1}}}\xspace\catcode`\%=14}
+\newcommand{\dc}{\begingroup\catcode`\%=12\codeaux}
+\newcommand\codeaux[1]{\texttt{\detokenize{#1}}\catcode`\%=14\endgroup\xspace}
 
 % https://tex.stackexchange.com/questions/509205/symbol-for-function-composition-like-a-big-sum
 \makeatletter
