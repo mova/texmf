@@ -4,42 +4,48 @@
 \newcommand{\tc}[1]{\texttt{#1}}
 \newcommand{\sfhalf}[1]{%
 	\begin{subfigure}{0.47\textwidth}%
-		\centering%
+		\begin{center}%
 		\includegraphics[width=\textwidth]{{figures/#1.pdf}}%
 	\end{subfigure}%
 }
 \newcommand{\sfhalfcap}[2]{%
 	\begin{subfigure}{0.47\textwidth}%
-		\centering%
+		\begin{center}%
 		\includegraphics[width=\textwidth]{{figures/#1.pdf}}%
+	\end{center}
+	\end{center}
 		\mycap{#2}%
 	\end{subfigure}%
 }
 
 \newcommand{\sffull}[1]{%
 	\begin{subfigure}{0.96\textwidth}%
-		\centering%
+		\begin{center}%
 		\includegraphics[width=\textwidth]{{figures/#1.pdf}}%
 	\end{subfigure}%
 }
 \newcommand{\sffullcap}[2]{%
 	\begin{subfigure}{0.96\textwidth}%
-		\centering%
+		\begin{center}%
 		\includegraphics[width=\textwidth]{{figures/#1.pdf}}%
+	\end{center}
+	\end{center}
 		\mycap{#2}%
 	\end{subfigure}%
 }
 \newcommand{\sfhalfheightcap}[2]{%
 	\begin{subfigure}{0.95\textwidth}%
-		\centering%
+		\begin{center}%
 		\includegraphics[height=.44\textheight]{{figures/#1.pdf}}%
+	\end{center}
 		\mycap{#2}%
 	\end{subfigure}%
 }
 \newcommand{\sfcustcap}[3]{%
 	\begin{subfigure}{#1\textwidth}%
-		\centering%
+		\begin{center}%
 		\includegraphics[width=\textwidth]{{figures/#2.pdf}}%
+	\end{center}
 		\mycap{#3}%
 	\end{subfigure}%
 }
