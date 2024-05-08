@@ -110,8 +110,10 @@
 \DeclareMathOperator{\ANDO}{\bigwedge}
 \DeclareMathOperator{\EX}{\mathbb{E}}
 \DeclareMathOperator{\LO}{\mathbb{E}}
-
-\usepackage{mathtools} 
+% Define a \diag operator
+\DeclareMathOperator{\diagop}{diag}
+% New command to wrap the \diag operator with parentheses
+\newcommand{\diag}[1]{\diagop\left( #1 \right)}
 
 \DeclarePairedDelimiter\autobracket{(}{)}
 \newcommand{\br}[1]{\autobracket*{#1}}
@@ -132,7 +134,10 @@
 \newcommand{\bft}{\ensuremath{\symbf{\theta}}\xspace}
 \newcommand{\bfx}{\ensuremath{\symbf{x}}\xspace}
 \newcommand{\bfb}{\ensuremath{\symbf{b}}\xspace}
-\newcommand{\bfl}{\ensuremath{\symbf{l}}\xspace}
+\newcommand{\bff}{\ensuremath{\symbf{f}}\xspace}
+\newcommand{\bfa}{\ensuremath{\symbf{a}}\xspace}
+\newcommand{\tD}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
+\newcommand{\pD}[2]{\frac{\mathrm{∂}#1}{\mathrm{∂}#2}}
 
 \newcommand{\real}{\ensuremath{\mathbb{R}}}
 
