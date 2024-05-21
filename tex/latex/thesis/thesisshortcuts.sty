@@ -105,6 +105,8 @@
 \DeclareMathOperator*{\argmax}{argmax}
 \DeclareMathOperator*{\argmin}{argmin}
 \DeclareMathOperator*{\softmax}{softmax}
+\DeclareMathOperator{\LeakyReLU}{LeakyReLU}
+\DeclareMathOperator{\ReLU}{ReLU}
 \DeclareMathOperator\erf{erf}
 \DeclareMathOperator\sgn{sgn}
 \DeclareMathOperator{\ANDO}{\bigwedge}
@@ -139,8 +141,7 @@
 \newcommand{\tD}[2]{\frac{\mathrm{d}#1}{\mathrm{d}#2}}
 \newcommand{\pD}[2]{\frac{\mathrm{∂}#1}{\mathrm{∂}#2}}
 
-\newcommand{\real}{\ensuremath{\mathbb{R}}}
-
+\newcommand{\real}{\ensuremath{ℝ}}
 \newcommand{\imp}{\ensuremath{\Rightarrow}\xspace}
 
 % JetNet specifics
@@ -291,3 +292,5 @@ y_num_particles:{cardinality\xspace},
 \newcommand{\pyg}{\textsc{PyG}\xspace}
 \newcommand{\scipy}{\textsc{SciPy}\xspace}
 \newcommand{\tscatter}{\textsc{PyTorch Scatter}\xspace}
+
+\newcommand{\metricsdescription}{The metrics and their computation are presented in~\cref{sec:jnmetrics}. Lower is better for all metrics. The value for the uncertainty is the standard deviation of the metrics calculated on the bootstrapped samples. The best central value of a model for a given metric are bold. The “Limit” row gives the measured in-sample distance by sampling datasets from the training dataset and calculating the metrics.\xspace}
