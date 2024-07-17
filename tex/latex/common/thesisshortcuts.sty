@@ -122,15 +122,15 @@
 % \DeclarePairedDelimiter\autoabs{\lvert}{\rvert}
 % \newcommand{\abs}[1]{\abs*{#1}}
 
-\newcommand{\EXdata}{\EX_{x \sim p_{\text{data}}(x)}\xspace}
-\newcommand{\EXgen}{\EX_{z \sim p_z(z)}}
-\newcommand{\EXxz}{\EX_{z \sim p_z(z),x \sim p_{\text{data}}(x)}\xspace}
+\newcommand{\EXdata}{\EX_{x \sim p_{\text{data}}}\xspace}
+\newcommand{\EXgen}{\EX_{z \sim p_z}}
+\newcommand{\EXxz}{\EX_{z \sim p_z,x \sim p_{\text{data}}}\xspace}
 \newcommand{\KL}{\ensuremath{D_\mathrm{KL}}\xspace}
 \newcommand{\JSD}{\ensuremath{\mathrm{JSD}}\xspace}
 \newcommand{\DX}{\ensuremath{\mathcal{X}}\xspace}
-\newcommand{\pdata}{\ensuremath{p_\text{data}}\xspace}
+\newcommand{\pdata}{\ensuremath{p_\text{D}}\xspace}
 \newcommand{\pz}{\ensuremath{p_z}\xspace}
-\newcommand{\pgen}{\ensuremath{p_\mathrm{gen}}\xspace}
+\newcommand{\pgen}{\ensuremath{p_\mathrm{G}}\xspace}
 \newcommand{\Dstar}{\ensuremath{D^\star}\xspace}
 
 \newcommand{\x}[1]{\ensuremath{\symbf{x}_{#1}}\xspace}
@@ -182,12 +182,12 @@
 \newcommand{\epic}{\textsc{EPiC-GAN}\xspace}
 \newcommand{\mpgan}{\textsc{MP-GAN}\xspace}
 
-\newcommand{\tjets}{t-jets\xspace}
-\newcommand{\tjet}{t-jet\xspace}
-\newcommand{\gjets}{g-jets\xspace}
-\newcommand{\gjet}{g-jet\xspace}
-\newcommand{\qjets}{q-jets\xspace}
-\newcommand{\qjet}{q-jet\xspace}
+\newcommand{\tjets}{t jets\xspace}
+\newcommand{\tjet}{t jet\xspace}
+\newcommand{\gjets}{g jets\xspace}
+\newcommand{\gjet}{g jet\xspace}
+\newcommand{\qjets}{q jets\xspace}
+\newcommand{\qjet}{q jet\xspace}
 
 %metrics
 \newcommand{\mavg}{\ensuremath{\overline{\mathrm{Metrics}}}\xspace}
@@ -293,9 +293,13 @@ y_num_particles:{cardinality\xspace},
 
 
 \newcommand{\torch}{\textsc{PyTorch}\xspace}
+\newcommand{\sklearn}{\textsc{sklearn}\xspace}
 \newcommand{\seaborn}{\textsc{Seaborn}\xspace}
 \newcommand{\pyg}{\textsc{PyG}\xspace}
+\newcommand{\caloutils}{\textsc{caloutils}\xspace}
+\newcommand{\cc}{\textsc{CaloChallenge}\xspace}
 \newcommand{\scipy}{\textsc{SciPy}\xspace}
 \newcommand{\tscatter}{\textsc{PyTorch Scatter}\xspace}
+\newcommand{\qtf}{\texttt{QuantileTransformer}\xspace}
 
 \newcommand{\metricsdescription}{The metrics and their computation are presented in~\cref{sec-jnmetrics}. Lower is better for all metrics. The value for the uncertainty is the standard deviation of the metrics calculated on the bootstrapped samples. The best central value of a model for a given metric are bold. The “Limit” row gives the measured in-sample distance by sampling datasets from the training dataset and calculating the metrics.\xspace}
