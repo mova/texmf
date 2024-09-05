@@ -126,7 +126,7 @@
 \newcommand{\EXgen}{\EX_{z \sim p_z}}
 \newcommand{\EXxz}{\EX_{z \sim p_z,x \sim p_{\text{data}}}\xspace}
 \newcommand{\KL}{\ensuremath{D_\mathrm{KL}}\xspace}
-\newcommand{\JSD}{\ensuremath{\mathrm{JSD}}\xspace}
+\newcommand{\JSD}{\ensuremath{D_\mathrm{JS}}\xspace}
 \newcommand{\DX}{\ensuremath{\mathcal{X}}\xspace}
 \newcommand{\pdata}{\ensuremath{p_\text{D}}\xspace}
 \newcommand{\pz}{\ensuremath{p_z}\xspace}
@@ -307,4 +307,10 @@ y_num_particles:{cardinality\xspace},
 \newcommand{\tscatter}{\textsc{PyTorch Scatter}\xspace}
 \newcommand{\qtf}{\texttt{QuantileTransformer}\xspace}
 
-\newcommand{\metricsdescription}{The metrics and their computation are presented in~\cref{sec-jnmetrics}. Lower is better for all metrics. The value for the uncertainty is the standard deviation of the metrics calculated on the bootstrapped samples. The best central value of a model for a given metric are bold. The “Limit” row gives the measured in-sample distance by sampling datasets from the training dataset and calculating the metrics.\xspace}
+\newcommand{\metricsdescription}{%
+The metrics and their computation are presented in~\cref{sec-jnmetrics}.
+Lower values indicate better performance for all metrics.
+The uncertainty is reported as the standard deviation of the metrics calculated on the bootstrapped samples.
+The best central value of a model for a given metric is highlighted in bold.
+The “Limit” row represents the in-sample distance measured by sampling datasets from the training dataset and calculating the metrics.\xspace
+}
